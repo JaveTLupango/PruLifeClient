@@ -4,6 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SessionService {
-
+  private isLoggedIn: boolean = false;
   constructor() { }
+
+  setLoggedIn(value: boolean) {
+    this.isLoggedIn = value;
+  }
+
+  get IsLoggedIn() {
+    return this.isLoggedIn;
+  }
 }
