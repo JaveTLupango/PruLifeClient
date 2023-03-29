@@ -8,18 +8,13 @@ import { Login } from '../Model/login.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  formDataLogin: Login = new  Login;
+  formValueLogin : Login = new Login;
+  username: string = '';
+  password: string = '';
 
-  postLogin(data : NgForm)
-    {
-      if(this.formDataLogin.username != null)
-      {
-        //this.addStudent(data);
-      }
-      else
-      {
-        //this.updateStudent(data);
-      }
-
-    }
+  onSubmit() {
+    console.log('Login clicked');
+    console.log('Username:', this.username);
+    console.log('Password:', this.password);
+  }
 }
