@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './shared/services/auth/auth.interceptor';
 import { GenerateRequentClientComponent } from './generate-requent-client/generate-requent-client.component';
+import { CreateGenReqClientComponent } from './create-gen-req-client/create-gen-req-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    GenerateRequentClientComponent
+    GenerateRequentClientComponent,
+    CreateGenReqClientComponent
   ],
   imports: [
     BrowserModule,
