@@ -12,6 +12,7 @@ import { CreateGenReqClientComponent } from './create-gen-req-client/create-gen-
 import { UserConsentTermsConditionComponent } from './user-consent-terms-condition/user-consent-terms-condition.component';
 import { ClientPersonalInfoComponent } from './client-personal-info/client-personal-info.component';
 import { ClientAddressComponent } from './client-address/client-address.component';
+import { ClientParentInformationComponent } from './client-parent-information/client-parent-information.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ClientAddressComponent } from './client-address/client-address.componen
     CreateGenReqClientComponent,
     UserConsentTermsConditionComponent,
     ClientPersonalInfoComponent,
-    ClientAddressComponent
+    ClientAddressComponent,
+    ClientParentInformationComponent
   ],
   imports: [
     BrowserModule,

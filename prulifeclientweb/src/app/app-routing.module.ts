@@ -1,3 +1,4 @@
+import { ClientParentInformationComponent } from './client-parent-information/client-parent-information.component';
 import { ClientAddressComponent } from './client-address/client-address.component';
 import { ClientPersonalInfoComponent } from './client-personal-info/client-personal-info.component';
 import { UserConsentTermsConditionComponent } from './user-consent-terms-condition/user-consent-terms-condition.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'creategenrequrl', component:CreateGenReqClientComponent},
   {path:'UserTerms', component:UserConsentTermsConditionComponent},
   {path:'client-personal-info', component:ClientPersonalInfoComponent},
-  {path:'client-address', component:ClientAddressComponent}
+  {path:'client-address', component:ClientAddressComponent},
+  {path:'client-parent-info', component:ClientParentInformationComponent}
 ];
 
 @NgModule({
