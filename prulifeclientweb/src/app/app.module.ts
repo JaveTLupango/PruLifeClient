@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './shared/services/auth/auth.interceptor';
+import { GenerateRequentClientComponent } from './generate-requent-client/generate-requent-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    GenerateRequentClientComponent
   ],
   imports: [
     BrowserModule,
