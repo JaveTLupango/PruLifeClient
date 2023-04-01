@@ -9,13 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './shared/services/auth/auth.interceptor';
 import { GenerateRequentClientComponent } from './generate-requent-client/generate-requent-client.component';
 import { CreateGenReqClientComponent } from './create-gen-req-client/create-gen-req-client.component';
+import { UserConsentTermsConditionComponent } from './user-consent-terms-condition/user-consent-terms-condition.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     GenerateRequentClientComponent,
-    CreateGenReqClientComponent
+    CreateGenReqClientComponent,
+    UserConsentTermsConditionComponent
   ],
   imports: [
     BrowserModule,
