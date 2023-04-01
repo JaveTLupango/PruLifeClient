@@ -1,3 +1,4 @@
+import { ClientPersonalInfoComponent } from './client-personal-info/client-personal-info.component';
 import { UserConsentTermsConditionComponent } from './user-consent-terms-condition/user-consent-terms-condition.component';
 import { CreateGenReqClientComponent } from './create-gen-req-client/create-gen-req-client.component';
 import { GenerateRequentClientComponent } from './generate-requent-client/generate-requent-client.component';
@@ -9,7 +10,8 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'generaterequesturl', component:GenerateRequentClientComponent},
   {path:'creategenrequrl', component:CreateGenReqClientComponent},
-  {path:'UserTerms', component:UserConsentTermsConditionComponent}
+  {path:'UserTerms', component:UserConsentTermsConditionComponent},
+  {path:'client-personal-info', component:ClientPersonalInfoComponent}
 ];
 
 @NgModule({
