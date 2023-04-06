@@ -9,6 +9,11 @@ body {
     height: 100vh;
 }
 
+label {
+    float: left;
+    margin-left: 10%;
+}
+
 a {
     color: #92badd;
     display: inline-block;
