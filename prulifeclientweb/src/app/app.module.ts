@@ -13,6 +13,9 @@ import { UserConsentTermsConditionComponent } from './user-consent-terms-conditi
 import { ClientPersonalInfoComponent } from './client-personal-info/client-personal-info.component';
 import { ClientAddressComponent } from './client-address/client-address.component';
 import { ClientParentInformationComponent } from './client-parent-information/client-parent-information.component';
+import { TestingComponent } from './testing/testing.component';
+import { ListofSiblingsComponent } from './listof-siblings/listof-siblings.component';
+import { AddSiblingComponent } from './add-sibling/add-sibling.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { ClientParentInformationComponent } from './client-parent-information/cl
     UserConsentTermsConditionComponent,
     ClientPersonalInfoComponent,
     ClientAddressComponent,
-    ClientParentInformationComponent
+    ClientParentInformationComponent,
+    TestingComponent,
+    ListofSiblingsComponent,
+    AddSiblingComponent
   ],
   imports: [
     BrowserModule,
