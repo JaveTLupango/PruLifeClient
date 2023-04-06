@@ -118,7 +118,8 @@ input[type=reset]:active {
 }
 
 input[type=text],
-input[type=email] {
+input[type=email],
+input[type=date] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
