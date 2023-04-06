@@ -7,6 +7,9 @@ import { GenerateRequentClientComponent } from './generate-requent-client/genera
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TestingComponent } from './testing/testing.component';
+import { ListofSiblingsComponent } from './listof-siblings/listof-siblings.component';
+import { AddSiblingComponent } from './add-sibling/add-sibling.component';
 
 const routes: Routes = [
   {path: 'login', component:LoginComponent},
@@ -15,7 +18,10 @@ const routes: Routes = [
   {path:'UserTerms', component:UserConsentTermsConditionComponent},
   {path:'client-personal-info', component:ClientPersonalInfoComponent},
   {path:'client-address', component:ClientAddressComponent},
-  {path:'client-parent-info', component:ClientParentInformationComponent}
+  {path:'client-parent-info', component:ClientParentInformationComponent},
+  {path:'list-of-siblings', component:ListofSiblingsComponent},
+  {path:'add-siblings', component:AddSiblingComponent},
+  {path:'testing', component:TestingComponent}
 ];
 
 @NgModule({

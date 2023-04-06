@@ -1,135 +1,114 @@
 <div class="container">
-    <div class="wrapper fadeInDown">
-        <h1>
-            Client Parent Information
-        </h1>
-        <div id="formContent">
-            <!-- Icon -->
-            <h2><b>Mother Information</b></h2>
-            <form>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-4">
-                            <label class="fadeIn second">First Name</label><br>
-                            <input type="text" id="mfname" class="fadeIn second" name="mfname" placeholder="Monther First Name">
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Last Name</label><br>
-                            <input type="text" id="mlname" class="fadeIn second" name="mlname" placeholder="Monther Last Name">
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Middle Name</label><br>
-                            <input type="text" id="mmname" class="fadeIn second" name="mmname" placeholder="Monther Middle Name">
-                        </div>
-                    </div>
+
+    <h1>Client Parent Information</h1>
+    <div class="content">
+        <form action="#">
+            <div class="title">Mother Information</div>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="Enter your name" required>
                 </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-4">
-                            <label class="fadeIn second">Birth Date</label><br>
-                            <input type="date" id="mbday" class="fadeIn second" name="street" placeholder="Birth Date">
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Is your mother still alive?</label><br/>
-                            <label>
-                            <input type="checkbox" name="consent" class="fadeIn second"> Check if (YES)
-                            </label>
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Cause Of Death</label>
-                            <input type="text" id="mcod" class="fadeIn second" name="mcod" placeholder="CAUSE OF DEATH">
-                        </div>
-                    </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Middle Name</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" placeholder="Enter your username" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Is your mother still alive?</span><br/>
+                    <input type="checkbox" placeholder="Enter your number" required style="
+                        height: 30%;
+                        float: left;
+                        width: 20%;
+                    ">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+                <div class="input-box">
+                    <span class="details">Cause of Death?</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Does your mother have an illness?</span><br/>
+                    <input type="checkbox" placeholder="Enter your number" required style="
+                          height: 30%;
+                          float: left;
+                          width: 20%;
+                      ">
+                    <span class="details"> Check if (YES)</span>
                 </div>
 
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-4">
-                            <label class="fadeIn second">Does your mother have an illness?</label><br/>
-                            <label>
-                          <input type="checkbox" name="consent" class="fadeIn second"> Check if (YES)
-                          </label>
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">What illness does your mother have?</label>
-                            <input type="text" id="mcod" class="fadeIn second" name="mcod" placeholder="Illness">
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Age Diagnosis</label>
-                            <input type="number" id="mcod" class="fadeIn second" name="mcod" placeholder="Age Diagnosis">
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-
-            <!-- Icon -->
-            <h2><b>Father Information</b></h2>
-            <form>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-4">
-                            <label class="fadeIn second">First Name</label><br>
-                            <input type="text" id="ffname" class="fadeIn second" name="ffname" placeholder="Monther First Name">
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Last Name</label><br>
-                            <input type="text" id="flname" class="fadeIn second" name="flname" placeholder="Monther Last Name">
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Middle Name</label><br>
-                            <input type="text" id="fmname" class="fadeIn second" name="fmname" placeholder="Monther Middle Name">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-4">
-                            <label class="fadeIn second">Birth Date</label><br>
-                            <input type="date" id="fbday" class="fadeIn second" name="street" placeholder="Birth Date">
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Is your mother still alive?</label><br/>
-                            <label>
-                          <input type="checkbox" name="consent" class="form-check-input"> Check if (YES)
-                          </label>
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Cause Of Death</label>
-                            <input type="text" id="fcod" class="fadeIn second" name="mcod" placeholder="CAUSE OF DEATH">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-4">
-                            <label class="fadeIn second">Does your mother have an illness?</label><br/>
-                            <label>
-                        <input type="checkbox" name="consent" class="fadeIn second"> Check if (YES)
-                        </label>
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">What illness does your mother have?</label>
-                            <input type="text" id="fillness" class="fadeIn second" name="mcod" placeholder="Illness">
-                        </div>
-                        <div class="col-4">
-                            <label class="fadeIn second">Age Diagnosis</label>
-                            <input type="number" id="fageIllness" class="fadeIn second" name="mcod" placeholder="Age Diagnosis">
-                        </div>
-                    </div>
+                <div class="input-box">
+                    <span class="details">What illness does your mother have?</span>
+                    <input type="text" placeholder="Enter your name" required>
                 </div>
 
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-4">
-                            <input type="submit" class="fadeIn second" name="Next" placeholder="Illness">
-                        </div>
-                        <div class="col-4">
-                            <a href="/client-Siblings-info">Agree and Continue</a>
-                        </div>
-                    </div>
+                <div class="input-box">
+                    <span class="details">Age Diagnosis?</span>
+                    <input type="number" placeholder="Enter your name" required>
                 </div>
-            </form>
-        </div>
+            </div>
+            <div class="title">Father Information</div>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Middle Name</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" placeholder="Enter your username" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Is your father still alive?</span><br/>
+                    <input type="checkbox" placeholder="Enter your number" required style="
+                        height: 30%;
+                        float: left;
+                        width: 20%;
+                    ">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+                <div class="input-box">
+                    <span class="details">Cause of Death?</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Does your father have an illness?</span><br/>
+                    <input type="checkbox" placeholder="Enter your number" required style="
+                          height: 30%;
+                          float: left;
+                          width: 20%;
+                      ">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">What illness does your father have?</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Age Diagnosis?</span>
+                    <input type="number" placeholder="Enter your name" required>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Save">
+                <a href="/list-of-siblings">next</a>
+            </div>
+        </form>
     </div>
 </div>
