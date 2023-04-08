@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 
 class AuthController extends Controller
@@ -16,20 +18,77 @@ class AuthController extends Controller
             'name'=>'required|min:2|max:100',
             'email'=>'required|email|unique:users',
             'password'=>'required|min:2|max:100',
-            'confirm_password'=>'required|same:password',
-            'user_role'=>'required',
-            'is_active'=>'required',
-            'is_deleted'=>'required'
+            'confirm_password'=>'required|same:password'
+            // ,'user_role'=>'required',
+            // 'is_active'=>'required',
+            // 'is_deleted'=>'required'
         ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>$validator->errors()
+            ], 422);
+        }
+
+        $users = User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>Hash::make($request->password)
+        ]);       
 
         return response()->json([
-            'message'=>'Validations fails',
-            'errors'=>$validator->errors()
-        ]);
-
-        // return response()->json([
-        //     'message'=>'Register API'
-        // ]);
+            'message'=>'Registration successfully',
+            'date'=>$users
+        ], 200);
     }
 
+    public function login (Request $request)
+    {
+        $validator = Validator::make($request->all(),
+        [
+            'email'=>'required:email',
+            'password'=>'required'
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>$validator->errors()
+            ], 422);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        if($user)
+        {
+            If(Hash::check($request->password, $user->password))
+            {
+                $token = $user->createToken('auth-token')->plainTextToken;
+                return response()->json([
+                    'message'=>'Login Successfully',
+                    'token'=>$token,
+                    'date'=>$user
+                ], 400);
+            }
+            else{
+                return response()->json([
+                    'message'=>'Incorrect Credentials'
+                ], 400);
+            }
+        }
+        else{
+            return response()->json([
+                'message'=>'Incorrect Credentials'
+            ], 400);
+        }
+    }
+
+    public function listofuser(Request $request)
+    {
+        return response()->json([
+            'message'=>'users successfully fetch',
+            'data'=>$request->user()
+        ], 200);
+    }
 }
