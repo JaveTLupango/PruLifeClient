@@ -35,7 +35,7 @@ class AuthController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>Hash::make($request->password)
-        ]);       
+        ]);
 
         return response()->json([
             'message'=>'Registration successfully',
@@ -89,6 +89,14 @@ class AuthController extends Controller
         return response()->json([
             'message'=>'users successfully fetch',
             'data'=>$request->user()
+        ], 200);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json([
+            'message'=>'users successfully logout'
         ], 200);
     }
 }
