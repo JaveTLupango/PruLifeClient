@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use app\Models\RequestUrl;
+use App\Models\RequestUrl;
 
 class CreateRequestURLController extends Controller
 {
-    public function create(Request $request)
+    public function createRequestURL(Request $request)
     {
         $validator = Validator::make($request->all(),
         [
-            'reciept_alias'=>'required|min:2|max:100',
-            'reciept_email'=>'required|email',
+            'receipt_alias'=>'required',
+            'receipt_email'=>'required|email',
             'user_id'=>'required'
         ]);
 
@@ -28,18 +28,24 @@ class CreateRequestURLController extends Controller
         $reqURL = RequestUrl::create(
             [
                 'user_id'=>$request->user_id,
-                'reciept_email'=>$request->reciept_email,
-                'reciept_alias'=>$request->reciept_alias,
+                'receipt_email'=>$request->receipt_email,
+                'receipt_alias'=>$request->receipt_alias,
                 'is_active'=>true,
-                'is_delete'=>false,
+                'is_deleted'=>false,
                 'gen_id'=>$request->user_id
             ]            
         );
 
         return response()->json([
             'message'=>'Request URL successfully generated',
-            'date'=>$reqURL,
+            'data'=>$reqURL,
             'StatusCode'=>200
         ]);
+
+        // return response()->json([
+        //     'message'=>'Request URL successfully generated',
+        //     'date'=>$reqURL,
+        //     'StatusCode'=>200
+        // ]);
     }
 }
