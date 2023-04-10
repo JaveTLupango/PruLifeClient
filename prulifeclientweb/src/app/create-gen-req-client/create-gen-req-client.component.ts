@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class CreateGenReqClientComponent {
 
+  email: string = '';
+  alias: string = '';
+
+  onSubmit()
+  {
+    console.log(this.email);
+    console.log(this.alias);
+  }
 }

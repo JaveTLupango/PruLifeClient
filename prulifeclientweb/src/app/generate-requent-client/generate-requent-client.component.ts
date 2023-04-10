@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-generate-requent-client',
@@ -6,13 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./generate-requent-client.component.css']
 })
 export class GenerateRequentClientComponent {
-  public visible = true;
+  constructor(private router: Router, private http: HttpClient){}
+  appC : AppComponent = new AppComponent(this.router, this.http);
+  public visible = false;
 
-  public show(): void {
-    this.visible = true;
-  }
+  ngOnInit(){
+      this.visible = this.appC.isLogin
+    }
 
-  public hide(): void {
-    this.visible = false;
-  }
 }
