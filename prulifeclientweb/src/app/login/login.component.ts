@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
 import { Login } from '../Model/login.model';
 import { LoginService } from '../shared/services/auth/login.service';
 import { HttpClient } from '@angular/common/http';
@@ -13,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
+
 constructor(private http: HttpClient,private router: Router)
 {
 

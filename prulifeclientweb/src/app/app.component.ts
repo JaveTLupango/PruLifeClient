@@ -25,12 +25,12 @@ export class AppComponent {
             this.isHeaderShow = false
           }
           else{
-            //console.log(localStorage.getItem('AuthToken'));
+            console.log(localStorage.getItem('AuthToken'));
             if(localStorage.getItem('AuthToken') != null)
-            {              
+            {
               this.isLogin = true;
             }
-            else{             
+            else{
               this.isLogin = false;
             }
             this.isHeaderShow = true
@@ -39,7 +39,7 @@ export class AppComponent {
       });
   }
 
-  
+
   logout_service : LogoutService = new LogoutService(this.http, this.router);
 
   logout()
@@ -54,7 +54,7 @@ export class AppComponent {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        
+
         this.logout_service.logout();
         // Swal.fire(
         //   'Deleted!',
