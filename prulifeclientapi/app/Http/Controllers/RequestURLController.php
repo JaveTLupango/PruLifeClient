@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\RequestUrl;
 
-class CreateRequestURLController extends Controller
+class RequestURLController extends Controller
 {
     public function createRequestURL(Request $request)
     {
@@ -47,5 +47,14 @@ class CreateRequestURLController extends Controller
         //     'date'=>$reqURL,
         //     'StatusCode'=>200
         // ]);
+    }
+
+    public function getListofRequestURL()
+    {
+        return response()->json([
+            'message'=>'Request URL successfully fetch',
+            'data'=>RequestUrl::all(),
+            'StatusCode'=>200
+        ]);
     }
 }
