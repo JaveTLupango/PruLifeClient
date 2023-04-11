@@ -10,8 +10,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestingComponent } from './testing/testing.component';
 import { ListofSiblingsComponent } from './listof-siblings/listof-siblings.component';
 import { AddSiblingComponent } from './add-sibling/add-sibling.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
+  {path: '', component:GenerateRequentClientComponent},
   {path: 'login', component:LoginComponent},
   {path: 'generaterequesturl', component:GenerateRequentClientComponent},
   {path:'creategenrequrl', component:CreateGenReqClientComponent},
@@ -21,6 +23,7 @@ const routes: Routes = [
   {path:'client-parent-info', component:ClientParentInformationComponent},
   {path:'list-of-siblings', component:ListofSiblingsComponent},
   {path:'add-siblings', component:AddSiblingComponent},
+  {path:'logout', component:LogoutComponent},
   {path:'testing', component:TestingComponent}
 ];
 

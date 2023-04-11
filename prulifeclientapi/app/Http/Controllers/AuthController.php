@@ -35,7 +35,7 @@ class AuthController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>Hash::make($request->password)
-        ]);       
+        ]);
 
         return response()->json([
             'message'=>'Registration successfully',
@@ -54,8 +54,9 @@ class AuthController extends Controller
         if($validator->fails()){
             return response()->json([
                 'message'=>'Validations fails',
-                'errors'=>$validator->errors()
-            ], 422);
+                'errors'=>$validator->errors(),
+                'StatusCode'=>422
+            ]);
         }
 
         $user = User::where('email', $request->email)->first();
@@ -68,19 +69,22 @@ class AuthController extends Controller
                 return response()->json([
                     'message'=>'Login Successfully',
                     'token'=>$token,
-                    'date'=>$user
-                ], 400);
+                    'data'=>$user,
+                    'StatusCode'=>200
+                ]);
             }
             else{
                 return response()->json([
-                    'message'=>'Incorrect Credentials'
-                ], 400);
+                    'message'=>'Incorrect Credentials',
+                    'StatusCode'=>400
+                ]);
             }
         }
         else{
             return response()->json([
-                'message'=>'Incorrect Credentials'
-            ], 400);
+                'message'=>'Incorrect Credentials',
+                'StatusCode'=>400
+            ]);
         }
     }
 
@@ -88,7 +92,16 @@ class AuthController extends Controller
     {
         return response()->json([
             'message'=>'users successfully fetch',
-            'data'=>$request->user()
+            'data'=>User::all()
+        ], 200);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json([
+            'message'=>'users successfully logout',
+            'StatusCode'=>200
         ], 200);
     }
 }

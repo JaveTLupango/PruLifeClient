@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,7 @@ import { ClientParentInformationComponent } from './client-parent-information/cl
 import { TestingComponent } from './testing/testing.component';
 import { ListofSiblingsComponent } from './listof-siblings/listof-siblings.component';
 import { AddSiblingComponent } from './add-sibling/add-sibling.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { AddSiblingComponent } from './add-sibling/add-sibling.component';
     ClientParentInformationComponent,
     TestingComponent,
     ListofSiblingsComponent,
-    AddSiblingComponent
+    AddSiblingComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

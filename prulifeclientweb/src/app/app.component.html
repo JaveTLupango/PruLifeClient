@@ -10,15 +10,21 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
+<div class="toolbar" role="banner" *ngIf="isHeaderShow">
     <img width="40" alt="Angular Logo" src="https://ecom.javelupango.com/wp-content/uploads/2020/11/v4.png" />
-    <span>Prulife Client</span>
+    <!-- <span>Policy Information</span> -->
+    <a aria-label="Angular on YouTube" href="/" class="nav" style="color:white">Policy Information</a>
     <div class="spacer">
-        <a aria-label="Angular on YouTube" href="/generaterequesturl" class="nav" style="color:white">Generate Request URL</a>
+
     </div>
-    <a aria-label="Angular on YouTube" href="/login">
-        <img src="https://images.squarespace-cdn.com/content/v1/5e00f6cbdd68a1508d3543bd/1580759310050-JPGDZPYC6VV084TQ3ARZ/login-button-png-icon-5.png" style="width: 130px;" alt="">
+    <a aria-label="Angular on YouTube" href="/generaterequesturl" class="nav" style="color:white" *ngIf="isLogin">Generate Request URL</a>
+
+    <a aria-label="Angular on YouTube" href="/login" *ngIf="!isLogin">
+        <img src="assets/img/login.png" style="width: 130px;" alt="">
     </a>
+    <button class="btn btn-default" (click)="logout()" *ngIf="isLogin">
+        <img src="assets/img/logout.png" style="width: 130px;" alt="">
+    </button>
 </div>
 
 <div class="content" role="main">

@@ -5,9 +5,9 @@
             <img src="https://ecom.javelupango.com/wp-content/uploads/2020/11/v4.png" id="icon" alt="User Icon" />
         </div>
         <!-- Login Form -->
-        <form>
-            <input type="text" id="alias" class="fadeIn second" name="alias" placeholder="Alias">
-            <input type="email" id="email" class="fadeIn third" name="email" placeholder="Email">
+        <form #aliasForm="ngForm" (ngSubmit)="onSubmit()">
+            <input type="text" id="alias" class="fadeIn second" name="alias" placeholder="Alias" [(ngModel)]="alias" required>
+            <input type="email" id="email" class="fadeIn third" name="email" placeholder="Email" [(ngModel)]="email" required>
             <input type="submit" class="fadeIn fourth" value="Generate">
         </form>
     </div>
