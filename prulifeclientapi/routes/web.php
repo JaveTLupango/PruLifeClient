@@ -1,6 +1,8 @@
 <?php
 
+use App\Mail\RequestURL;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/emails/requestURL', function () {
+    Mail::to('pangga.jave@gmail.com')->send(new RequestURL);
+    return new RequestURL();
 });
