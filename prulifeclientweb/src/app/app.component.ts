@@ -25,7 +25,7 @@ export class AppComponent {
             this.isHeaderShow = false
           }
           else{
-            console.log(localStorage.getItem('AuthToken'));
+            //console.log(localStorage.getItem('AuthToken'));
             if(localStorage.getItem('AuthToken') != null)
             {
               this.isLogin = true;
@@ -55,7 +55,8 @@ export class AppComponent {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        this.logout_service.logout();
+        this.logout_service.logout();        
+        this.router.navigate(['']);
         // Swal.fire(
         //   'Deleted!',
         //   'Your file has been deleted.',
