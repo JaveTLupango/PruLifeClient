@@ -25,12 +25,12 @@ export class LoginService {
       {
         if(data.StatusCode == 200)
         {
-          console.log(data.token);
-          console.log(data.data);
+          // console.log(data.token);
+          // console.log(data.data);
           localStorage.setItem('AuthToken', data.token);
           localStorage.setItem('UsersInfo', data.data);
           Swal.fire(
-            'Login Failed!',
+            'Login Successfuly!',
             data.message,
             'success'
           )
@@ -42,7 +42,7 @@ export class LoginService {
             data.message,
             'warning'
           )
-        }        
+        }
       },
       (error: HttpErrorResponse) => {
         Swal.fire(
@@ -50,6 +50,6 @@ export class LoginService {
           error.message,
           'warning'
         )
-    });
+      });
   }
 }

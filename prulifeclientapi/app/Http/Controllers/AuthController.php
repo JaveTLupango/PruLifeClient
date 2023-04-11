@@ -92,7 +92,7 @@ class AuthController extends Controller
     {
         return response()->json([
             'message'=>'users successfully fetch',
-            'data'=>$request->user()
+            'data'=>User::all()
         ], 200);
     }
 

@@ -16,6 +16,7 @@ class CreateRequestUrlsTable extends Migration
         Schema::create('request_urls', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->string('receipt_alias');
             $table->string('receipt_email');
             $table->boolean('is_active');
             $table->boolean('is_deleted');

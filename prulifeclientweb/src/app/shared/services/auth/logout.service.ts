@@ -13,51 +13,25 @@ export class LogoutService {
 
   logout()
   {
-    // let headers = new Headers();
-    // //headers.append('Accept','application/json');
-    // headers.append('Authorization', 'Bearer '+localStorage.getItem('AuthToken'));
-    // console.log('Bearer '+localStorage.getItem('AuthToken'));
-    // this.http.post<any>(this.baseurl.url_api+'/auth/logout', { headers: headers } ).subscribe(
-    //   data =>
-    //   {
-    //     if(data.StatusCode == 200)
-    //     {
-    //       Swal.fire(
-    //         'Login Failed!',
-    //         data.message,
-    //         'success'
-    //       )
-    //       localStorage.clear();          
-    //     }
-    //   },
-    //   (error: HttpErrorResponse) => {
-    //     Swal.fire(
-    //       'Login Failed!',
-    //       error.message,
-    //       'warning'
-    //     )
-    //   }
-    // );
-    console.log('Bearer '+localStorage.getItem('AuthToken'));
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer "+localStorage.getItem('AuthToken'));
     myHeaders.append("Accept", "application/json");
 
-
-    fetch("http://127.0.0.1:8000/api/auth/logout", {
+    fetch(this.baseurl+"/auth/logout", {
       method: 'POST',
       headers: myHeaders,
       redirect: 'follow'
     })
       .then(response => response.text())
       .then(result => {
-        console.log(result);
+        console.log(result);        
+        localStorage.clear(); 
           Swal.fire(
                 'User Logout!',
                 result,
                 'success'
-              )
-              localStorage.clear(); 
+              )             
+          window.location.reload();
       }  
       )
       .catch(error => {
@@ -68,7 +42,6 @@ export class LogoutService {
                 'warning'
               )
       });  
-      this.router.navigate(['']);
   }
 
 }

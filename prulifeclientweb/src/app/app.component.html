@@ -12,11 +12,13 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner" *ngIf="isHeaderShow">
     <img width="40" alt="Angular Logo" src="https://ecom.javelupango.com/wp-content/uploads/2020/11/v4.png" />
-    <span>Prulife Client</span>
-
+    <!-- <span>Policy Information</span> -->
+    <a aria-label="Angular on YouTube" href="/" class="nav" style="color:white">Policy Information</a>
     <div class="spacer">
-        <a aria-label="Angular on YouTube" href="/generaterequesturl" class="nav" style="color:white" *ngIf="isLogin">Generate Request URL</a>
+
     </div>
+    <a aria-label="Angular on YouTube" href="/generaterequesturl" class="nav" style="color:white" *ngIf="isLogin">Generate Request URL</a>
+
     <a aria-label="Angular on YouTube" href="/login" *ngIf="!isLogin">
         <img src="assets/img/login.png" style="width: 130px;" alt="">
     </a>
