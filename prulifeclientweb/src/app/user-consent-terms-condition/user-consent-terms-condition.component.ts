@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-user-consent-terms-condition',
@@ -7,4 +10,12 @@ import { Component } from '@angular/core';
 })
 export class UserConsentTermsConditionComponent {
 
+  constructor(private router: Router, private http: HttpClient, private route: ActivatedRoute){}
+  id: number = 0;
+  isDisabled: boolean = false;
+
+  ngOnInit()
+  {
+    this.id = this.route.snapshot.params['id'];
+  }
 }

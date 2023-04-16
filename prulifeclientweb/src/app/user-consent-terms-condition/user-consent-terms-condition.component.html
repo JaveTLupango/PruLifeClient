@@ -9,11 +9,10 @@
     </ol>
     <form>
         <label>
-      <input type="checkbox" name="consent" required>
+      <input type="checkbox" name="consent" required [(ngModel)]="isDisabled">
       I have read and agree to the terms and conditions
     </label>
         <br>
-        <!-- <button type="submit">Agree and Continue</button> -->
-        <a href="/client-personal-info">Agree and Continue</a>
+        <a [routerLink]="['/client-personal-info']" *ngIf="isDisabled">Agree and Continue</a>
     </form>
 </div>

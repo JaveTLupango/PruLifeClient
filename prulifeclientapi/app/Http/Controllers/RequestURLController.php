@@ -45,7 +45,7 @@ class RequestURLController extends Controller
         $requestURLData = [
             'body'=>'You Recieved an new email notification.',
             'contentText'=>'Click and Fill out the form.',
-            'url'=> $baseURL.'policy-information-data/'.$reqURL['id'],
+            'url'=> $baseURL.'policy-information-terms/'.$reqURL['id'],
             'thankyou'=>'You have 5mins to take action before this link will expired. Thank you.',
         ];
 
