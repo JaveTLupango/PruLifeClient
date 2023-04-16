@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'prulifeclientweb';
   isLogin : boolean = false;
   isHeaderShow  : boolean = false;
+  isNavShow : boolean = false;
 
   constructor(private router: Router, private http: HttpClient)
   {
@@ -23,8 +24,16 @@ export class AppComponent {
           if(val.url == '/login')
           {
             this.isHeaderShow = false
+            this.isNavShow = true;
           }
-          else{
+          else if(val.url.includes('policy'))
+          {
+            
+            this.isHeaderShow = true;
+            this.isNavShow = false;
+          }
+          else
+          {
             //console.log(localStorage.getItem('AuthToken'));
             if(localStorage.getItem('AuthToken') != null)
             {
@@ -34,6 +43,7 @@ export class AppComponent {
               this.isLogin = false;
             }
             this.isHeaderShow = true
+            this.isNavShow = true;
           }
         }
       });
