@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RequestURLController;
+use App\Http\Controllers\testRequestURLController;
 use App\Mail\RequestURL;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,10 +28,12 @@ Route::post('/auth/login', [AuthController::class,'login']);
 
 Route::get('/auth/users', [AuthController::class,'listofuser'])->middleware('auth:sanctum');
 Route::post('/auth/logout', [AuthController::class,'logout'])->middleware('auth:sanctum');
-Route::post('/request-url/create', [RequestURLController::class,'createRequestURL'])->middleware('auth:sanctum');   
+Route::post('/request-url/create', [RequestURLController::class,'createRequestURL'])->middleware('auth:sanctum');
 Route::get('/request-url/list', [RequestURLController::class,'getListofRequestURL'])->middleware('auth:sanctum');
 
 Route::get('/emails/requestURL', function () {
     Mail::to('pangga.jave@gmail.com')->send(new RequestURL);
     return 'success';
 })->middleware('auth:sanctum');
+
+Route::get('/send-testrequestURL', [testRequestURLController::class, 'sendRequest']);
