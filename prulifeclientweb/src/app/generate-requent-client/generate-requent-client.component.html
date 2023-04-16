@@ -21,7 +21,7 @@
         <tbody>
             <tr *ngFor="let rqURL of requestURLList">
                 <td>{{ rqURL.receipt_alias }}</td>
-                <td>{{ rqURL.receipt_email }}</td>
+                <td>{{ rqURL.email }}</td>
                 <td>{{ rqURL.created_at }}</td>
                 <td *ngIf="rqURL.is_active">Active</td>
                 <td *ngIf="!rqURL.is_active">Inactive</td>

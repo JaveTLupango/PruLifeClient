@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'generaterequesturl', component:GenerateRequentClientComponent},
   {path:'creategenrequrl', component:CreateGenReqClientComponent},
   {path:'UserTerms', component:UserConsentTermsConditionComponent},
+  {path:'policy-information-terms/:id', component:UserConsentTermsConditionComponent},
   {path:'client-personal-info', component:ClientPersonalInfoComponent},
   {path:'client-address', component:ClientAddressComponent},
   {path:'client-parent-info', component:ClientParentInformationComponent},

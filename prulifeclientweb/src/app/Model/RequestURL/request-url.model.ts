@@ -2,7 +2,7 @@ export class RequestURL {
     id :string = '';
     user_id: number = 0;
     receipt_alias : string = '';
-    receipt_email : string = '';
+    email : string = '';
     is_active : boolean = false;
     is_deleted : boolean = false;
     gen_id : string = '';
