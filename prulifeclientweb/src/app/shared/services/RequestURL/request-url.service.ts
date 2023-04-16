@@ -11,7 +11,7 @@ import { CreateRequestURL } from 'src/app/Model/RequestURL/request-url.model';
 export class RequestURLService {
 
   constructor(private http: HttpClient, private router: Router) { }
-  baseurl : Baseurl = new Baseurl();
+  baseurl : Baseurl = new Baseurl();  
 
   getListOfRequestURL()
   {
