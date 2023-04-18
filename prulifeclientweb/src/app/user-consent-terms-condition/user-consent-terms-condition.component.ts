@@ -11,11 +11,12 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class UserConsentTermsConditionComponent {
 
   constructor(private router: Router, private http: HttpClient, private route: ActivatedRoute){}
-  id: number = 0;
+  Req_id: number = 0;
   isDisabled: boolean = false;
 
   ngOnInit()
   {
-    this.id = this.route.snapshot.params['id'];
+    this.Req_id = this.route.snapshot.params['id'];
+    
   }
 }

@@ -11,15 +11,14 @@ import { CreateRequestURL } from 'src/app/Model/RequestURL/request-url.model';
 export class RequestURLService {
 
   constructor(private http: HttpClient, private router: Router) { }
-  baseurl : Baseurl = new Baseurl();
+  baseurl : Baseurl = new Baseurl();  
 
   getListOfRequestURL()
   {
     const headers = new HttpHeaders()
             .set("Authorization", "Bearer "+localStorage.getItem('AuthToken'));
     const apiURL = this.baseurl.url_api+"/request-url/list";
-        return this.http.get(apiURL,{headers}
-        );
+        return this.http.get(apiURL,{headers});
   }
 
   postCreateRequestURL(createRURL: CreateRequestURL)

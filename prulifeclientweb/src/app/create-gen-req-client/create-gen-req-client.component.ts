@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export class CreateGenReqClientComponent {
   email: string = '';
   alias: string = '';
-
+  UserId : number = 0;
   constructor(private router: Router, private http: HttpClient){}
   appC : AppComponent = new AppComponent(this.router, this.http);
   request_url : RequestURLService = new RequestURLService(this.http,this.router);
@@ -29,21 +29,23 @@ export class CreateGenReqClientComponent {
     {
       this.router.navigate(['/login']);
     }
-  }
-  onSubmit()
-  {
-    // console.log(this.email);
-    // console.log(this.alias);
-    let userlogin = localStorage.getItem('UsersInfo');
+
+    const userlogin = localStorage.getItem('UsersInfo');
     console.log(userlogin);
     const val1 = JSON.stringify(userlogin);
     const val2 = JSON.parse(val1);
     this.userModel = JSON.parse(val2);
     console.log(this.userModel);
     console.log(this.userModel.id);
+    this.UserId = this.userModel.id;
+  }
+  onSubmit()
+  {
+    // console.log(this.email);
+    // console.log(this.alias);
     this.createRURL.receipt_alias = this.alias;
     this.createRURL.receipt_email = this.email;
-    this.createRURL.user_id = this.userModel.id;
+    this.createRURL.user_id = this.UserId;//this.userModel.id;
 
     this.request_url.postCreateRequestURL(this.createRURL).subscribe(
       data=>

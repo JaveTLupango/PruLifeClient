@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PolicyInformation;
 use App\Http\Controllers\RequestURLController;
 use App\Http\Controllers\testRequestURLController;
 use App\Mail\RequestURL;
@@ -37,3 +38,6 @@ Route::get('/emails/requestURL', function () {
 })->middleware('auth:sanctum');
 
 Route::get('/send-testrequestURL', [testRequestURLController::class, 'sendRequest']);
+
+Route::get('/policy-information-terms', [PolicyInformation::class, 'validatePolicy']);
+Route::post('/policy-client-personal-info', [PolicyInformation::class, 'validateClientPersonalinfo']);

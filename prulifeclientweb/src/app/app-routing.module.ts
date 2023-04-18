@@ -19,11 +19,11 @@ const routes: Routes = [
   {path:'creategenrequrl', component:CreateGenReqClientComponent},
   {path:'UserTerms', component:UserConsentTermsConditionComponent},
   {path:'policy-information-terms/:id', component:UserConsentTermsConditionComponent},
-  {path:'client-personal-info', component:ClientPersonalInfoComponent},
-  {path:'client-address', component:ClientAddressComponent},
-  {path:'client-parent-info', component:ClientParentInformationComponent},
-  {path:'list-of-siblings', component:ListofSiblingsComponent},
-  {path:'add-siblings', component:AddSiblingComponent},
+  {path:'policy-client-personal-info/:id', component:ClientPersonalInfoComponent},
+  {path:'policy-client-address/:id', component:ClientAddressComponent},
+  {path:'policy-client-parent-info/:id', component:ClientParentInformationComponent},
+  {path:'policy-list-of-siblings/:id', component:ListofSiblingsComponent},
+  {path:'policy-add-siblings/:id', component:AddSiblingComponent},
   {path:'logout', component:LogoutComponent},
   {path:'testing', component:TestingComponent}
 ];
