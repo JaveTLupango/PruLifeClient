@@ -18,8 +18,7 @@ export class RequestURLService {
     const headers = new HttpHeaders()
             .set("Authorization", "Bearer "+localStorage.getItem('AuthToken'));
     const apiURL = this.baseurl.url_api+"/request-url/list";
-        return this.http.get(apiURL,{headers}
-        );
+        return this.http.get(apiURL,{headers});
   }
 
   postCreateRequestURL(createRURL: CreateRequestURL)

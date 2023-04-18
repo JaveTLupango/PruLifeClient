@@ -13,13 +13,13 @@
 <div class="toolbar" role="banner" *ngIf="isHeaderShow">
     <img width="40" alt="Angular Logo" src="https://ecom.javelupango.com/wp-content/uploads/2020/11/v4.png" />
     <!-- <span>Policy Information</span> -->
-    <a aria-label="Angular on YouTube"  class="nav" style="color:white">Policy Information</a>
+    <a aria-label="Angular on YouTube" class="nav" style="color:white">Policy Information</a>
     <div class="spacer">
 
     </div>
     <a aria-label="Angular on YouTube" href="/generaterequesturl" class="nav" style="color:white" *ngIf="isLogin && isHeaderShow">Generate Request URL</a>
 
-    <a aria-label="Angular on YouTube" href="/login" *ngIf="!isLogin && !isHeaderShow">
+    <a aria-label="Angular on YouTube" href="/login" *ngIf="!isLogin && isHeaderShow">
         <img src="assets/img/login.png" style="width: 130px;" alt="">
     </a>
     <button class="btn btn-default" (click)="logout()" *ngIf="isLogin">
