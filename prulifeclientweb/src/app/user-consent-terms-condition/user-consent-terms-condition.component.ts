@@ -24,7 +24,7 @@ export class UserConsentTermsConditionComponent {
       data =>
       {
         console.log(data);
-        if(data.datacount > 0)
+        if(data.dataCount > 0)
         {
           console.log('true');
           this.isValid = true;

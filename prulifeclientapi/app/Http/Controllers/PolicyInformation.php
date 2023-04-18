@@ -14,6 +14,7 @@ class PolicyInformation extends Controller
         return response()->json([
             'message'=>'Success',
             'data'=>$policy,
+            'dataCount'=>count($policy),
             'StatusCode'=>200
         ]); 
     }

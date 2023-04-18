@@ -14,7 +14,14 @@ export class UserConcentService {
 
   validateConcent(requestId : number)
   {
+    ///policy-information-terms
       this.requestModel.id = requestId;
-      return this.http.post<any>(this.baseurl.url_api+'/policy-client-personal-info',this.requestModel);
+      return this.http.post<any>(this.baseurl.url_api+'/policy-information-terms',this.requestModel);
   }
+  // validateConcent(requestId : number)
+  // {
+  //   ///policy-information-terms
+  //     this.requestModel.id = requestId;
+  //     return this.http.post<any>(this.baseurl.url_api+'/policy-client-personal-info',this.requestModel);
+  // }
 }

@@ -18,6 +18,7 @@ export class ClientPersonalInfoComponent {
   ngOnInit()
   {
     this.Req_id = this.route.snapshot.params['id'];
+    console.log(this.Req_id);
     this.personalInfo.validatePersonalInfo(this.Req_id).subscribe(
       data =>
       {
