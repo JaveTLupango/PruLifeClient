@@ -41,3 +41,4 @@ Route::get('/send-testrequestURL', [testRequestURLController::class, 'sendReques
 
 Route::post('/policy-information-terms', [PolicyInformation::class, 'validatePolicy']);
 Route::post('/policy-client-personal-info', [PolicyInformation::class, 'validateClientPersonalinfo']);
+Route::post('/create-policy-client-personal-info', [PolicyInformation::class, 'InsertPersonalPolicyInfo']);
