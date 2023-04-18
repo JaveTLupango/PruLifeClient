@@ -12,7 +12,7 @@ export class PersonalInfoService {
   baseurl : Baseurl = new Baseurl();
   reqModel : RequestModel = new RequestModel();
 
-  validatePersonalInfo(Req_id: string)
+  validatePersonalInfo(Req_id: number)
   {
     const apiURL = this.baseurl.url_api+"/policy-client-personal-info";
     const model = this.reqModel;

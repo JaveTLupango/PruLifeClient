@@ -11,7 +11,7 @@ import { PersonalInfoService } from '../shared/services/policy/personal-info.ser
 })
 export class ClientPersonalInfoComponent {
   constructor(private router: Router, private http: HttpClient, private route: ActivatedRoute){}
-  Req_id: string = '';
+  Req_id: number = 0;
   rowCount : number = 0;
   isDisabled: boolean = false;
   personalInfo: PersonalInfoService = new PersonalInfoService(this.http);

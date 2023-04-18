@@ -1,3 +1,3 @@
 export class RequestModel {
-    id : string = ''
+    id : number = 0
 }
