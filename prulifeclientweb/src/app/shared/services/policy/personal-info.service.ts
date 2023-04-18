@@ -17,6 +17,6 @@ export class PersonalInfoService {
     const apiURL = this.baseurl.url_api+"/policy-client-personal-info";
     const model = this.reqModel;
     model.id = Req_id;
-    return this.http.post(apiURL, model);
+    return this.http.post<any>(apiURL, model);
   }
 }

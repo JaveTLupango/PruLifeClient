@@ -21,9 +21,10 @@ class PolicyInformation extends Controller
 
     public function validateClientPersonalinfo(Request $request)
     {
-        $retval = ClientPersonalInfo::where('request_id', $request->id)->get();       
+        $retval = ClientPersonalInfo::where('id', $request->id)->get();       
         return response()->json([
             'message'=>'Success',
+            'data'=>$retval,
             'dataCount'=>count($retval),
             'StatusCode'=>200
         ]); 
