@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class ClientPersonalInfo extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'request_id',
+        'fname',
+        'lname',
+        'mname',
+        'bday',
+        'contact_no',
+        'email',
+        'gender'
+    ];
 }

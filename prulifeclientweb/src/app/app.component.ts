@@ -28,7 +28,7 @@ export class AppComponent {
           }
           else if(val.url.includes('policy'))
           {
-            
+
             this.isHeaderShow = true;
             this.isNavShow = false;
           }
@@ -56,16 +56,16 @@ export class AppComponent {
   {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: "Logging Out is deleting all session!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, Logging Out!'
     }).then((result) => {
       if (result.isConfirmed) {
 
-        this.logout_service.logout();        
+        this.logout_service.logout();
         this.router.navigate(['']);
         // Swal.fire(
         //   'Deleted!',

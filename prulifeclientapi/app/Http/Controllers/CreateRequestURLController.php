@@ -37,10 +37,10 @@ class CreateRequestURLController extends Controller
                 'is_active'=>true,
                 'is_deleted'=>false,
                 'gen_id'=>$request->user_id
-            ]            
+            ]
         );
 
-        $requestURL = ModelsRequestUrl::where('id', 6)->get();
+        //$requestURL = ModelsRequestUrl::where('id', 6)->get();
         //$requestURL = User::where('id', 2)->get();
 
         $requestURLData = [
