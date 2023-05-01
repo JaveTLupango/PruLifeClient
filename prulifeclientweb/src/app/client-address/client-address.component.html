@@ -38,10 +38,10 @@
             </div>
             <div class="gender-details">
                 <span class="details">Current Address is same as permanent?</span>
-                <input type="checkbox" placeholder="Enter your number" required>
+                <input type="checkbox" [(ngModel)]="is_permanent" name="lname" required>
             </div>
-            <div class="title">Client Permanent Address Information</div>
-            <div class="user-details">
+            <div class="title" *ngIf="!is_permanent">Client Permanent Address Information</div>
+            <div class="user-details" *ngIf="!is_permanent">
                 <div class="input-box">
                     <span class="details">HOUSE NO</span>
                     <input type="text" placeholder="Enter your name" required>
