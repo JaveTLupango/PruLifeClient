@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'prulifeclientweb';
   isLogin : boolean = false;
   isHeaderShow  : boolean = false;
+  isNavShow : boolean = false;
 
   constructor(private router: Router, private http: HttpClient)
   {
@@ -23,8 +24,16 @@ export class AppComponent {
           if(val.url == '/login')
           {
             this.isHeaderShow = false
+            this.isNavShow = true;
           }
-          else{
+          else if(val.url.includes('policy'))
+          {
+
+            this.isHeaderShow = true;
+            this.isNavShow = false;
+          }
+          else
+          {
             //console.log(localStorage.getItem('AuthToken'));
             if(localStorage.getItem('AuthToken') != null)
             {
@@ -34,6 +43,7 @@ export class AppComponent {
               this.isLogin = false;
             }
             this.isHeaderShow = true
+            this.isNavShow = true;
           }
         }
       });
@@ -46,16 +56,16 @@ export class AppComponent {
   {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: "Logging Out is deleting all session!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, Logging Out!'
     }).then((result) => {
       if (result.isConfirmed) {
 
-        this.logout_service.logout();        
+        this.logout_service.logout();
         this.router.navigate(['']);
         // Swal.fire(
         //   'Deleted!',
