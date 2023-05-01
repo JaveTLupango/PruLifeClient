@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PersonalInfoService } from '../shared/services/policy/personal-info.service';
 import { PersonalInfo } from '../Model/policy/personal-info.model';
 import { NgModel } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class ClientPersonalInfoComponent {
     bday : Date = new Date;
     contact_no : string = '';
     email : string = '';
-    gender : number = 0; 
+    gender : number = 0;
+    id : number = 0;
 
   personalmodel : PersonalInfo = new PersonalInfo();
   personalInfo: PersonalInfoService = new PersonalInfoService(this.http);
@@ -36,7 +38,20 @@ export class ClientPersonalInfoComponent {
         console.log(data);
         if(data.dataCount > 0)
         {
-
+          this.rowCount = data.dataCount;
+          this.personalmodel = data.data[0];
+          console.log(this.personalmodel);
+          this.fname = this.personalmodel.fname;
+          this.lname = this.personalmodel.lname;
+          this.mname = this.personalmodel.mname;
+          this.bday = this.personalmodel.bday;
+          this.email = this.personalmodel.email;
+          this.gender = this.personalmodel.gender;
+          this.contact_no = this.personalmodel.contact_no;   
+          this.id = this.personalmodel.id;     
+        }
+        else{          
+          this.rowCount = 0;
         }
       }
     );
@@ -44,12 +59,51 @@ export class ClientPersonalInfoComponent {
 
   onsubmit()
   {
-    console.log(this.fname);
-    console.log(this.lname);
-    console.log(this.mname);
-    console.log(this.bday);
-    console.log(this.contact_no);
-    console.log(this.email);
-    console.log(this.gender);
+    this.personalmodel.fname = this.fname;
+    this.personalmodel.lname = this.lname;
+    this.personalmodel.mname = this.mname;
+    this.personalmodel.bday = this.bday;
+    this.personalmodel.email = this.email;
+    this.personalmodel.gender = this.gender;
+    this.personalmodel.contact_no = this.contact_no;
+    this.personalmodel.request_id = this.Req_id;
+    console.log(this.personalmodel);
+    if(this.rowCount == 0)
+    {
+      this.personalInfo.createPersonalInfo(this.personalmodel).subscribe(
+        data =>
+        {
+          if(data.StatusCode == 200)
+          {
+            Swal.fire(
+              'Personal Information is successfuly Saved!',
+              data.message,
+              'success'
+            )
+          }
+          else{
+            console.log(data);            
+          }
+        }
+      );
+    }
+    else{      
+        this.personalmodel.id = this.id;
+        this.router.navigate(['/policy-client-address/'+ this.Req_id]);
+        // Swal.fire({
+        //   title: 'Do you want to save the changes?',
+        //   showDenyButton: true,
+        //   showCancelButton: true,
+        //   confirmButtonText: 'Save',
+        //   denyButtonText: `Don't save`,
+        // }).then((result) => {
+        //   /* Read more about isConfirmed, isDenied below */
+        //   if (result.isConfirmed) {
+        //     Swal.fire('Saved!', '', 'success')
+        //   } else if (result.isDenied) {
+        //     Swal.fire('Changes are not saved', '', 'info')
+        //   }
+        // })
+    }      
   }
 }
