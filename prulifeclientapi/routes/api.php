@@ -42,3 +42,8 @@ Route::get('/send-testrequestURL', [testRequestURLController::class, 'sendReques
 Route::post('/policy-information-terms', [PolicyInformation::class, 'validatePolicy']);
 Route::post('/policy-client-personal-info', [PolicyInformation::class, 'validateClientPersonalinfo']);
 Route::post('/create-policy-client-personal-info', [PolicyInformation::class, 'InsertPersonalPolicyInfo']);
+Route::put('/update-policy-client-personal-info', [PolicyInformation::class, 'UpdatePersonalPolicyInfo']);
+
+Route::post('/policy-client-address-info', [PolicyInformation::class, 'validateClientAddress']);
+Route::post('/create-client-address-info', [PolicyInformation::class, 'InsertClientAddress']);
+Route::post('/update-client-address-info', [PolicyInformation::class, 'UpdateClientAddress']);

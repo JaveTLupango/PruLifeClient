@@ -150,7 +150,6 @@ class PolicyInformation extends Controller
 
     public function InsertClientAddress(Request $request)
     {
-
         $validator = Validator::make($request->all(),
         [
             'user_id'=>'required',
@@ -209,7 +208,6 @@ class PolicyInformation extends Controller
             'StatusCode'=>200
         ]);
     }
-
     
     public function UpdateClientAddress(Request $request)
     {
