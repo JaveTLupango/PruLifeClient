@@ -29,14 +29,14 @@ export class ClientAddressComponent {
         if(data.StatusCode == 200)
         {
           this.rowCount = data.dataCount;
-          if(data.dataCount ==1 )
+          if(data.dataCount > 0 )
           {
             this.clientAddressModel = data.data[0];
-          }          
+          }
         }
         else
         {
-
+          this.rowCount = 0;
         }
       }
     );
@@ -44,29 +44,36 @@ export class ClientAddressComponent {
 
   onsubmit()
   {
-    this.clientAddressModel.request_id = this.Req_id;
-    console.log(this.clientAddressModel);
-    this.clientAddressServices.InsertClientAddress(this.clientAddressModel).subscribe(
-      data=>
-      {
-        if(data.StatusCode == 200)
+    if(this.rowCount == 0)
+    {
+      this.clientAddressModel.request_id = this.Req_id;
+      console.log(this.clientAddressModel);
+      this.clientAddressServices.InsertClientAddress(this.clientAddressModel).subscribe(
+        data=>
         {
-          Swal.fire(
-            'Successfully Saved!',
-            data.message,
-            'success'
-          )
+          if(data.StatusCode == 200)
+          {
+            Swal.fire(
+              'Successfully Saved!',
+              data.message,
+              'success'
+            )
+          }
+          else
+          {
+            console.log(data);
+            Swal.fire(
+              'Something Wrong!',
+              data.message + ' ' +data.errors ,
+              'error'
+            )
+          }
         }
-        else
-        {
-          console.log(data);
-          Swal.fire(
-            'Something Wrong!',
-            data.message + ' ' +data.errors ,
-            'error'
-          )
-        }
-      }
-    );
+      );
+    }
+    else
+    {
+      this.router.navigate(['/policy-client-parent-info/'+ this.Req_id]);
+    }
   }
 }
