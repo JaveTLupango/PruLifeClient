@@ -1,83 +1,83 @@
 <div class="container">
     <div class="content">
-        <form action="#">
+        <form #clientaddressinfoform="ngForm" (ngSubmit)="onsubmit()">
             <div class="title">Client Current Address Information</div>
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">HOUSE NO</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your House No." [(ngModel)]="clientAddressModel.house_no" name="house_no" required>
                 </div>
                 <div class="input-box">
                     <span class="details">SUB NAME</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your Subd Name" [(ngModel)]="clientAddressModel.subd_name" name="subd_name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">STREET</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your Street" [(ngModel)]="clientAddressModel.street_name" name="street_name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">BARANGAY</span>
-                    <input type="text" placeholder="Enter your username" required>
+                    <input type="text" placeholder="Enter your Barangay" [(ngModel)]="clientAddressModel.barangay" name="barangay" required>
                 </div>
                 <div class="input-box">
                     <span class="details">MUNICIPALITY</span>
-                    <input type="text" placeholder="Enter your email" required>
+                    <input type="text" placeholder="Enter your Municipality" [(ngModel)]="clientAddressModel.municipality" name="municipality" required>
                 </div>
                 <div class="input-box">
                     <span class="details">CITY</span>
-                    <input type="text" placeholder="Enter your number" required>
+                    <input type="text" placeholder="Enter your City" [(ngModel)]="clientAddressModel.city" name="city" required>
                 </div>
                 <div class="input-box">
                     <span class="details">PROVINCE</span>
-                    <input type="text" placeholder="Enter your number" required>
+                    <input type="text" placeholder="Enter your Province" [(ngModel)]="clientAddressModel.province" name="province" required>
                 </div>
                 <div class="input-box">
                     <span class="details">ZIPCODE</span>
-                    <input type="text" placeholder="Enter your number" required>
+                    <input type="text" placeholder="Enter your Zipcode" [(ngModel)]="clientAddressModel.zipcode" name="zipcode" required>
                 </div>
             </div>
             <div class="gender-details">
                 <span class="details">Current Address is same as permanent?</span>
-                <input type="checkbox" placeholder="Enter your number" required>
+                <input type="checkbox" [(ngModel)]="clientAddressModel.is_permanent" name="lname" required>
             </div>
-            <div class="title">Client Permanent Address Information</div>
-            <div class="user-details">
+            <div class="title" *ngIf="!clientAddressModel.is_permanent">Client Permanent Address Information</div>
+            <div class="user-details" *ngIf="!clientAddressModel.is_permanent">
                 <div class="input-box">
                     <span class="details">HOUSE NO</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your name">
                 </div>
                 <div class="input-box">
                     <span class="details">SUB NAME</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your name">
                 </div>
                 <div class="input-box">
                     <span class="details">STREET</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your name">
                 </div>
                 <div class="input-box">
                     <span class="details">BARANGAY</span>
-                    <input type="text" placeholder="Enter your username" required>
+                    <input type="text" placeholder="Enter your username">
                 </div>
                 <div class="input-box">
                     <span class="details">MUNICIPALITY</span>
-                    <input type="text" placeholder="Enter your email" required>
+                    <input type="text" placeholder="Enter your email">
                 </div>
                 <div class="input-box">
                     <span class="details">CITY</span>
-                    <input type="text" placeholder="Enter your number" required>
+                    <input type="text" placeholder="Enter your number">
                 </div>
                 <div class="input-box">
                     <span class="details">PROVINCE</span>
-                    <input type="text" placeholder="Enter your number" required>
+                    <input type="text" placeholder="Enter your number">
                 </div>
                 <div class="input-box">
                     <span class="details">ZIPCODE</span>
-                    <input type="text" placeholder="Enter your number" required>
+                    <input type="text" placeholder="Enter your number">
                 </div>
             </div>
             <div class="button">
                 <input type="submit" value="Save">
-                <a href="/client-parent-info">next</a>
+                <!-- <a href="/client-parent-info">next</a> -->
             </div>
         </form>
     </div>
