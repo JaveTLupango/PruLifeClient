@@ -46,4 +46,9 @@ Route::put('/update-policy-client-personal-info', [PolicyInformation::class, 'Up
 
 Route::post('/policy-client-address-info', [PolicyInformation::class, 'validateClientAddress']);
 Route::post('/create-client-address-info', [PolicyInformation::class, 'InsertClientAddress']);
-Route::post('/update-client-address-info', [PolicyInformation::class, 'UpdateClientAddress']);
+Route::put('/update-client-address-info', [PolicyInformation::class, 'UpdateClientAddress']);
+
+
+Route::post('/policy-client-parent-info', [PolicyInformation::class, 'validateClientParent']);
+Route::post('/create-client-parent-info', [PolicyInformation::class, 'InsertClientParent']);
+Route::put('/update-client-parent-info', [PolicyInformation::class, 'UpdateClientParent']);

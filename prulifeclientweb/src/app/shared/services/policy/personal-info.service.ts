@@ -7,7 +7,8 @@ import { PersonalInfo } from 'src/app/Model/policy/personal-info.model';
 @Injectable({
   providedIn: 'root'
 })
-export class PersonalInfoService {
+export class PersonalInfoService
+{
 
   constructor(private http: HttpClient) { }
   baseurl : Baseurl = new Baseurl();
