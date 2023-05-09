@@ -24,6 +24,7 @@ const routes: Routes = [
   {path:'policy-client-parent-info/:id', component:ClientParentInformationComponent},
   {path:'policy-list-of-siblings/:id', component:ListofSiblingsComponent},
   {path:'policy-add-siblings/:id', component:AddSiblingComponent},
+  {path:'policy-list-siblings/:id', component:ListofSiblingsComponent},
   {path:'logout', component:LogoutComponent},
   {path:'testing', component:TestingComponent}
 ];

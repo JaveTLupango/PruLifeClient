@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClientAddressInfo;
+use App\Models\ClientParentInfo;
 use App\Models\ClientPersonalInfo;
 use App\Models\RequestUrl;
 use Illuminate\Support\Facades\Validator;
@@ -267,6 +268,90 @@ class PolicyInformation extends Controller
 
         return response()->json([
             'message'=>'Client Address Saved!',
+            'data'=>$retval,
+            'StatusCode'=>200
+        ]);
+    }
+
+    public function validateClientParent(Request $request)
+    {
+        $retvalMother = ClientParentInfo::where([
+            ['request_id', $request->id],
+            ['type', 0]
+        ])->get();
+        
+        $retvalFather = ClientParentInfo::where([
+            ['request_id', $request->id],
+            ['type', 1]
+        ])->get();
+        
+        return response()->json([
+            'message'=>'Success',
+            'dataMother'=>$retvalMother,
+            'dataCountM'=>count($retvalMother),
+            'dataFather'=>$retvalFather,
+            'dataCountF'=>count($retvalFather),
+            'StatusCode'=>200
+        ]);
+    }
+    
+    public function InsertClientParent(Request $request)
+    {
+
+        $validator = Validator::make($request->all(),
+        [
+            'user_id'=>'required',
+            'request_id'=>'required',
+            'pi_id'=>'required:email',
+            'fname'=>'required',
+            'lname'=>'required',
+            'bday'=>'required',
+            'type'=>'required',
+            'is_not_death'=>'required',
+            'cause_of_death'=>'required',
+            'is_not_illness'=>'required',
+            'illness' => 'required',
+            'age_diagnosis' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>$validator->errors(),
+                'StatusCode'=>422
+            ]);
+        }
+
+        if($request->request_id == 0)
+        {
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>"Request ID is Invalid!",
+                'StatusCode'=>422
+            ]);
+        }
+
+        $retval = ClientParentInfo::create(
+            [
+                'user_id'=>$request->user_id,
+                'request_id'=>$request->request_id,
+                'pi_id'=>$request->pi_id,
+                'fname'=>$request->fname,
+                'lname'=>$request->lname,
+                'mname'=>$request->mname,
+                'bday'=>$request->bday,
+                'type'=>$request->type,
+                'string_type'=>$request->string_type,
+                'is_not_death'=>$request->is_not_death,
+                'cause_of_death'=>$request->cause_of_death,
+                'is_not_illness'=>$request->is_not_illness,
+                'illness' =>$request->illness,
+                'age_diagnosis' =>$request->age_diagnosis,
+            ]
+        );
+
+        return response()->json([
+            'message'=>'Successfully saved!',
             'data'=>$retval,
             'StatusCode'=>200
         ]);
