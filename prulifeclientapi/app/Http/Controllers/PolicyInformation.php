@@ -445,5 +445,128 @@ class PolicyInformation extends Controller
         ]);
     }
 
-    
+    public function InsertClientSiblings(Request $request)
+    {
+        
+        $validator = Validator::make($request->all(),
+        [
+            'user_id'=>'required',
+            'request_id'=>'required',
+            'pi_id'=>'required:email',
+            'fname'=>'required',
+            'lname'=>'required',
+            'bday'=>'required',
+            'type'=>'required',
+            'is_not_death'=>'required',
+            'cause_of_death'=>'required',
+            'is_not_illness'=>'required',
+            'illness' => 'required',
+            'age_diagnosis' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>$validator->errors(),
+                'StatusCode'=>422
+            ]);
+        }
+
+        if($request->request_id == 0)
+        {
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>"Request ID is Invalid!",
+                'StatusCode'=>422
+            ]);
+        }
+
+        $retval = ClientSiblingsInfo::create(
+            [
+                'user_id'=>$request->user_id,
+                'request_id'=>$request->request_id,
+                'pi_id'=>$request->pi_id,
+                'fname'=>$request->fname,
+                'lname'=>$request->lname,
+                'mname'=>$request->mname,
+                'bday'=>$request->bday,
+                'type'=>$request->type,
+                'string_type'=>$request->string_type,
+                'is_not_death'=>$request->is_not_death,
+                'cause_of_death'=>$request->cause_of_death,
+                'is_not_illness'=>$request->is_not_illness,
+                'illness' =>$request->illness,
+                'age_diagnosis' =>$request->age_diagnosis,
+            ]
+        );
+
+        return response()->json([
+            'message'=>'Successfully saved!',
+            'data'=>$retval,
+            'StatusCode'=>200
+        ]);
+    }
+
+    public function UpdateClientSiblings(Request $request)
+    {
+        
+        $validator = Validator::make($request->all(),
+        [
+            'user_id'=>'required',
+            'request_id'=>'required',
+            'pi_id'=>'required:email',
+            'fname'=>'required',
+            'lname'=>'required',
+            'bday'=>'required',
+            'type'=>'required',
+            'is_not_death'=>'required',
+            'cause_of_death'=>'required',
+            'is_not_illness'=>'required',
+            'illness' => 'required',
+            'age_diagnosis' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>$validator->errors(),
+                'StatusCode'=>422
+            ]);
+        }
+
+        if($request->request_id == 0)
+        {
+            return response()->json([
+                'message'=>'Validations fails',
+                'errors'=>"Request ID is Invalid!",
+                'StatusCode'=>422
+            ]);
+        }
+
+        $retval = ClientSiblingsInfo::where('id', $request->id)->
+        update(
+            [
+                'user_id'=>$request->user_id,
+                'request_id'=>$request->request_id,
+                'pi_id'=>$request->pi_id,
+                'fname'=>$request->fname,
+                'lname'=>$request->lname,
+                'mname'=>$request->mname,
+                'bday'=>$request->bday,
+                'type'=>$request->type,
+                'string_type'=>$request->string_type,
+                'is_not_death'=>$request->is_not_death,
+                'cause_of_death'=>$request->cause_of_death,
+                'is_not_illness'=>$request->is_not_illness,
+                'illness' =>$request->illness,
+                'age_diagnosis' =>$request->age_diagnosis,
+            ]
+        );
+
+        return response()->json([
+            'message'=>'Successfully Updated!',
+            'data'=>$retval,
+            'StatusCode'=>200
+        ]);
+    }
 }
