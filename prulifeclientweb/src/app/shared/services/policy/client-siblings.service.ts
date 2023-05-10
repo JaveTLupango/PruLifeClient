@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Baseurl } from '../../baseurl/baseurl.model';
 import { RequestModel } from 'src/app/Model/policy/request-model.model';
+import { ClientParentInfo } from 'src/app/Model/policy/client-parent-info.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,12 @@ export class ClientSiblingsService {
     const model = this.reqModel;
     model.id = Req_id;
     return this.http.post<any>(apiURL, model);
+  }
+  
+  create(modelSiblings: ClientParentInfo)
+  {
+    const apiURL = this.baseurl.url_api+"/create-client-sibling-info";
+    return this.http.post<any>(apiURL, modelSiblings);
   }
 
 }

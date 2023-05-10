@@ -7,7 +7,7 @@
 <div class="container">
     <h2>Siblings</h2>
     <a href="/policy-add-siblings/{{ Req_id }}" class="requestURL btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></a>
-    <a href="/UserTerms" class="requestURL btn btn-success">UserTerms</a>
+    <a href="/UserTerms" class="requestURL btn btn-success">Preview</a>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -20,8 +20,9 @@
         <tbody>
             <tr *ngFor="let i of listOfSiblings">
                 <td>{{ i.fname }}</td>
-                <td>i.bday</td>
-                <td>i.type</td>
+                <td>{{ i.bday }}</td>
+                <td *ngIf="i.type">Male</td>
+                <td *ngIf="!i.type">Female</td>
                 <td>
                     <button type="button" class="requestURL btn btn-success"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
                     <button type="button" class="requestURL btn btn-warning"><i class="fa fa-repeat" aria-hidden="true"></i></button>
@@ -30,4 +31,5 @@
             </tr>
         </tbody>
     </table>
+    <a href="/policy-client-parent-info/{{ Req_id }}" class="requestURL btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</a>
 </div>
