@@ -42,3 +42,19 @@ Route::get('/send-testrequestURL', [testRequestURLController::class, 'sendReques
 Route::post('/policy-information-terms', [PolicyInformation::class, 'validatePolicy']);
 Route::post('/policy-client-personal-info', [PolicyInformation::class, 'validateClientPersonalinfo']);
 Route::post('/create-policy-client-personal-info', [PolicyInformation::class, 'InsertPersonalPolicyInfo']);
+Route::put('/update-policy-client-personal-info', [PolicyInformation::class, 'UpdatePersonalPolicyInfo']);
+
+Route::post('/policy-client-address-info', [PolicyInformation::class, 'validateClientAddress']);
+Route::post('/create-client-address-info', [PolicyInformation::class, 'InsertClientAddress']);
+Route::put('/update-client-address-info', [PolicyInformation::class, 'UpdateClientAddress']);
+
+
+Route::post('/policy-client-parent-info', [PolicyInformation::class, 'validateClientParent']);
+Route::post('/create-client-parent-info', [PolicyInformation::class, 'InsertClientParent']);
+Route::put('/update-client-parent-info', [PolicyInformation::class, 'UpdateClientParent']);
+
+
+Route::post('/policy-client-sibling-list', [PolicyInformation::class, 'getListOfSiblings']);
+Route::post('/policy-client-sibling-info', [PolicyInformation::class, 'getSiblingsInfo']);
+Route::post('/create-client-sibling-info', [PolicyInformation::class, 'InsertClientSiblings']);
+Route::put('/update-client-sibling-info', [PolicyInformation::class, 'UpdateClientSiblings']);

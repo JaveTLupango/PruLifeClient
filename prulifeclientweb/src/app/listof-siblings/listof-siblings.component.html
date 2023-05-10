@@ -6,46 +6,23 @@
 
 <div class="container">
     <h2>Siblings</h2>
-    <a href="/add-siblings" class="requestURL btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></a>
-    <a href="/UserTerms" class="requestURL btn btn-success">UserTerms</a>
+    <a href="/policy-add-siblings/{{ Req_id }}" class="requestURL btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    <a href="/UserTerms" class="requestURL btn btn-success">Preview</a>
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Alias</th>
-                <th>Email</th>
-                <th>Date</th>
-                <th>Status</th>
+                <th>Name</th>
+                <th>BirthDate</th>
+                <th>Gender</th>
                 <th>Option</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Jave</td>
-                <td>jave@lupango.com</td>
-                <td>04/01/2023</td>
-                <td>Active</td>
-                <td>
-                    <button type="button" class="requestURL btn btn-success"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
-                    <button type="button" class="requestURL btn btn-warning"><i class="fa fa-repeat" aria-hidden="true"></i></button>
-                    <button type="button" class="requestURL btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>Jave</td>
-                <td>jave@lupango.com</td>
-                <td>04/01/2023</td>
-                <td>Active</td>
-                <td>
-                    <button type="button" class="requestURL btn btn-success"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
-                    <button type="button" class="requestURL btn btn-warning"><i class="fa fa-repeat" aria-hidden="true"></i></button>
-                    <button type="button" class="requestURL btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>Jave</td>
-                <td>jave@lupango.com</td>
-                <td>04/01/2023</td>
-                <td>Active</td>
+            <tr *ngFor="let i of listOfSiblings">
+                <td>{{ i.fname }}</td>
+                <td>{{ i.bday }}</td>
+                <td *ngIf="i.type">Male</td>
+                <td *ngIf="!i.type">Female</td>
                 <td>
                     <button type="button" class="requestURL btn btn-success"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
                     <button type="button" class="requestURL btn btn-warning"><i class="fa fa-repeat" aria-hidden="true"></i></button>
@@ -54,4 +31,5 @@
             </tr>
         </tbody>
     </table>
+    <a href="/policy-client-parent-info/{{ Req_id }}" class="requestURL btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</a>
 </div>

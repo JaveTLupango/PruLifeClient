@@ -1,113 +1,120 @@
 <div class="container">
-
     <h1>Client Parent Information</h1>
     <div class="content">
-        <form action="#">
+        <form #personalinfomotherform="ngForm" (ngSubmit)="onsubmit()">
             <div class="title">Mother Information</div>
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">First Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Mother First Name" [(ngModel)]="motherDetailsModel.fname" name="fname" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Last Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Mother Last Name" [(ngModel)]="motherDetailsModel.lname" name="Mlname" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Middle Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Mother Middle Name" [(ngModel)]="motherDetailsModel.mname" name="Mmname" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Birth Date</span>
-                    <input type="date" placeholder="Enter your username" required>
+                    <input type="date" placeholder="Mother Birth Day" [(ngModel)]="motherDetailsModel.bday" name="Mfname" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Is your mother still alive?</span><br/>
-                    <input type="checkbox" placeholder="Enter your number" required style="
+                    <input type="checkbox" placeholder="" required style="
                         height: 30%;
                         float: left;
                         width: 20%;
-                    ">
+                    " [(ngModel)]="motherDetailsModel.is_not_death" name="MIsDeath">
                     <span class="details"> Check if (YES)</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Cause of Death?</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your name" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death">
                 </div>
                 <div class="input-box">
                     <span class="details">Does your mother have an illness?</span><br/>
-                    <input type="checkbox" placeholder="Enter your number" required style="
+                    <input type="checkbox" placeholder="Does your mother have an illness?" required style="
                           height: 30%;
                           float: left;
                           width: 20%;
-                      ">
+                      " [(ngModel)]="motherDetailsModel.is_not_illness" name="Mis_illnes">
                     <span class="details"> Check if (YES)</span>
                 </div>
 
                 <div class="input-box">
                     <span class="details">What illness does your mother have?</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="What illness does your mother have?" [(ngModel)]="motherDetailsModel.illness" name="Millness">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Age Diagnosis?</span>
-                    <input type="number" placeholder="Enter your name" required>
+                    <input type="number" placeholder="Age Diagnosis?" [(ngModel)]="motherDetailsModel.age_diagnosis" name="Mage_diagnosis" required>
                 </div>
             </div>
             <div class="title">Father Information</div>
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">First Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Father First Name" [(ngModel)]="fatherDetailsModel.fname" name="Ffname" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Last Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Father Last Name" [(ngModel)]="fatherDetailsModel.lname" name="Flname" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Middle Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Father Middle Name" [(ngModel)]="fatherDetailsModel.mname" name="Fmname" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Birth Date</span>
-                    <input type="date" placeholder="Enter your username" required>
+                    <input type="date" placeholder="Father Birth Day" [(ngModel)]="fatherDetailsModel.bday" name="Fbday" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Is your father still alive?</span><br/>
-                    <input type="checkbox" placeholder="Enter your number" required style="
-                        height: 30%;
-                        float: left;
-                        width: 20%;
-                    ">
+                    <input type="checkbox" placeholder="" required style="
+                      height: 30%;
+                      float: left;
+                      width: 20%;
+                  " [(ngModel)]="fatherDetailsModel.is_not_death" name="FIsDeath">
                     <span class="details"> Check if (YES)</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Cause of Death?</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death">
                 </div>
                 <div class="input-box">
-                    <span class="details">Does your father have an illness?</span><br/>
-                    <input type="checkbox" placeholder="Enter your number" required style="
-                          height: 30%;
-                          float: left;
-                          width: 20%;
-                      ">
+                    <span class="details">Does your mother have an illness?</span><br/>
+                    <input type="checkbox" placeholder="Does your father have an illness?" required style="
+                        height: 30%;
+                        float: left;
+                        width: 20%;
+                    " [(ngModel)]="fatherDetailsModel.is_not_illness" name="Fis_illnes">
                     <span class="details"> Check if (YES)</span>
                 </div>
 
                 <div class="input-box">
-                    <span class="details">What illness does your father have?</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <span class="details">What illness does your mother have?</span>
+                    <input type="text" placeholder="What illness does your father have?" [(ngModel)]="fatherDetailsModel.illness" name="Fillness">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Age Diagnosis?</span>
-                    <input type="number" placeholder="Enter your name" required>
+                    <input type="number" placeholder="Age Diagnosis?" [(ngModel)]="fatherDetailsModel.age_diagnosis" name="Fage_diagnosis" required>
                 </div>
             </div>
             <div class="button">
-                <input type="submit" value="Save">
-                <a href="/list-of-siblings">next</a>
+                <div class="row">
+                    <div class="col-6">
+                        <a href="/policy-client-address/{{ Req_id }}" class="requestURL btn btn-success" style="
+                        width: 100%;
+                    "><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</a>
+                    </div>
+                    <div class="col-6">
+                        <input type="submit" value="Save">
+                    </div>
+                </div>
             </div>
         </form>
     </div>
