@@ -47,10 +47,10 @@ export class ClientPersonalInfoComponent {
           this.bday = this.personalmodel.bday;
           this.email = this.personalmodel.email;
           this.gender = this.personalmodel.gender;
-          this.contact_no = this.personalmodel.contact_no;   
-          this.id = this.personalmodel.id;     
+          this.contact_no = this.personalmodel.contact_no;
+          this.id = this.personalmodel.id;
         }
-        else{          
+        else{
           this.rowCount = 0;
         }
       }
@@ -82,12 +82,12 @@ export class ClientPersonalInfoComponent {
             )
           }
           else{
-            console.log(data);            
+            console.log(data);
           }
         }
       );
     }
-    else{      
+    else{
         this.personalmodel.id = this.id;
         this.router.navigate(['/policy-client-address/'+ this.Req_id]);
         // Swal.fire({
@@ -104,6 +104,6 @@ export class ClientPersonalInfoComponent {
         //     Swal.fire('Changes are not saved', '', 'info')
         //   }
         // })
-    }      
+    }
   }
 }

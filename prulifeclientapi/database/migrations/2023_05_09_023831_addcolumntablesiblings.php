@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Removecolumn extends Migration
+class Addcolumntablesiblings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class Removecolumn extends Migration
      */
     public function up()
     {
-        //
-        // Schema::table('client_parent_infos', function (Blueprint $table) {
-        //     $table->dropColumn('cause_of-death');
-        // });
+        Schema::table('client_siblings_infos', function (Blueprint $table) {
+            $table->string('cause_of_death')->nullable();
+        });
     }
 
     /**
@@ -26,8 +25,8 @@ class Removecolumn extends Migration
      */
     public function down()
     {
-        Schema::table('client_parent_infos', function (Blueprint $table) {
-            $table->string('cause_of-death');
+        Schema::table('client_siblings_infos', function (Blueprint $table) {
+            $table->dropColumn('cause_of_death');
         });
     }
 }

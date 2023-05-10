@@ -52,3 +52,9 @@ Route::put('/update-client-address-info', [PolicyInformation::class, 'UpdateClie
 Route::post('/policy-client-parent-info', [PolicyInformation::class, 'validateClientParent']);
 Route::post('/create-client-parent-info', [PolicyInformation::class, 'InsertClientParent']);
 Route::put('/update-client-parent-info', [PolicyInformation::class, 'UpdateClientParent']);
+
+
+Route::post('/policy-client-sibling-list', [PolicyInformation::class, 'getListOfSiblings']);
+Route::post('/policy-client-sibling-info', [PolicyInformation::class, 'getSiblingsInfo']);
+Route::post('/create-client-sibling-info', [PolicyInformation::class, 'InsertClientSiblings']);
+Route::put('/update-client-sibling-info', [PolicyInformation::class, 'UpdateClientSiblings']);
