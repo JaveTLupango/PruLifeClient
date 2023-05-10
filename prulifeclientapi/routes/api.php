@@ -58,3 +58,6 @@ Route::post('/policy-client-sibling-list', [PolicyInformation::class, 'getListOf
 Route::post('/policy-client-sibling-info', [PolicyInformation::class, 'getSiblingsInfo']);
 Route::post('/create-client-sibling-info', [PolicyInformation::class, 'InsertClientSiblings']);
 Route::put('/update-client-sibling-info', [PolicyInformation::class, 'UpdateClientSiblings']);
+
+//getPreviewClientData
+Route::post('/policy-client-data-preview', [PolicyInformation::class, 'getPreviewClientData']);
