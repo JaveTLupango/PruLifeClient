@@ -1,1 +1,236 @@
-<p>clientdatapreview works!</p>
+<div class="container">
+    <h2>Preview</h2>
+</div>
+
+<div class="container">
+    <button class="btn btn-success title" (click)="btn01()">Client Personal Information</button>
+    <div class="content" *ngIf="content1">
+        <form #personalinfoform="ngForm">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="Enter your name" [(ngModel)]="personalmodel.fname" name="fname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Enter your name" [(ngModel)]="personalmodel.lname" name="lname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Middle Name</span>
+                    <input type="text" placeholder="Enter your name" [(ngModel)]="personalmodel.mname" name="mname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" placeholder="Enter your username" [(ngModel)]="personalmodel.bday" name="bday" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" placeholder="Enter your email" [(ngModel)]="personalmodel.email" name="email" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone Number</span>
+                    <input type="text" placeholder="Enter your number" [(ngModel)]="personalmodel.contact_no" name="contact_no" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Gender</span>
+                    <select name="type" id="cars" [(ngModel)]="personalmodel.gender" required>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                  </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <button class="btn btn-success title" (click)="btn02()">Client Address Information</button>
+    <div class="content" *ngIf="content2">
+        <form #clientaddressinfoform="ngForm">
+            <div class="title">Client Current Address Information</div>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">HOUSE NO</span>
+                    <input type="text" placeholder="Enter your House No." [(ngModel)]="clientAddressModel.house_no" name="house_no" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">SUB NAME</span>
+                    <input type="text" placeholder="Enter your Subd Name" [(ngModel)]="clientAddressModel.subd_name" name="subd_name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">STREET</span>
+                    <input type="text" placeholder="Enter your Street" [(ngModel)]="clientAddressModel.street_name" name="street_name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">BARANGAY</span>
+                    <input type="text" placeholder="Enter your Barangay" [(ngModel)]="clientAddressModel.barangay" name="barangay" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">MUNICIPALITY</span>
+                    <input type="text" placeholder="Enter your Municipality" [(ngModel)]="clientAddressModel.municipality" name="municipality" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">CITY</span>
+                    <input type="text" placeholder="Enter your City" [(ngModel)]="clientAddressModel.city" name="city" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">PROVINCE</span>
+                    <input type="text" placeholder="Enter your Province" [(ngModel)]="clientAddressModel.province" name="province" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">ZIPCODE</span>
+                    <input type="text" placeholder="Enter your Zipcode" [(ngModel)]="clientAddressModel.zipcode" name="zipcode" required>
+                </div>
+            </div>
+            <div class="gender-details">
+                <span class="details">Current Address is same as permanent?</span>
+                <input type="checkbox" [(ngModel)]="clientAddressModel.is_permanent" name="lname" required>
+            </div>
+            <div class="title" *ngIf="!clientAddressModel.is_permanent">Client Permanent Address Information</div>
+            <div class="user-details" *ngIf="!clientAddressModel.is_permanent">
+                <div class="input-box">
+                    <span class="details">HOUSE NO</span>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+                <div class="input-box">
+                    <span class="details">SUB NAME</span>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+                <div class="input-box">
+                    <span class="details">STREET</span>
+                    <input type="text" placeholder="Enter your name">
+                </div>
+                <div class="input-box">
+                    <span class="details">BARANGAY</span>
+                    <input type="text" placeholder="Enter your username">
+                </div>
+                <div class="input-box">
+                    <span class="details">MUNICIPALITY</span>
+                    <input type="text" placeholder="Enter your email">
+                </div>
+                <div class="input-box">
+                    <span class="details">CITY</span>
+                    <input type="text" placeholder="Enter your number">
+                </div>
+                <div class="input-box">
+                    <span class="details">PROVINCE</span>
+                    <input type="text" placeholder="Enter your number">
+                </div>
+                <div class="input-box">
+                    <span class="details">ZIPCODE</span>
+                    <input type="text" placeholder="Enter your number">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <button class="btn btn-success title" (click)="btn03()">Client Parent Information</button>
+    <div class="content" *ngIf="content3">
+        <form #personalinfomotherform="ngForm">
+            <div class="title">Mother Information</div>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="Mother First Name" [(ngModel)]="motherDetailsModel.fname" name="fname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Mother Last Name" [(ngModel)]="motherDetailsModel.lname" name="Mlname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Middle Name</span>
+                    <input type="text" placeholder="Mother Middle Name" [(ngModel)]="motherDetailsModel.mname" name="Mmname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" placeholder="Mother Birth Day" [(ngModel)]="motherDetailsModel.bday" name="Mfname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Is your mother still alive?</span><br/>
+                    <input type="checkbox" placeholder="" required style="
+                      height: 30%;
+                      float: left;
+                      width: 20%;
+                  " [(ngModel)]="motherDetailsModel.is_not_death" name="MIsDeath">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+                <div class="input-box">
+                    <span class="details">Cause of Death?</span>
+                    <input type="text" placeholder="Enter your name" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death">
+                </div>
+                <div class="input-box">
+                    <span class="details">Does your mother have an illness?</span><br/>
+                    <input type="checkbox" placeholder="Does your mother have an illness?" required style="
+                        height: 30%;
+                        float: left;
+                        width: 20%;
+                    " [(ngModel)]="motherDetailsModel.is_not_illness" name="Mis_illnes">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">What illness does your mother have?</span>
+                    <input type="text" placeholder="What illness does your mother have?" [(ngModel)]="motherDetailsModel.illness" name="Millness">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Age Diagnosis?</span>
+                    <input type="number" placeholder="Age Diagnosis?" [(ngModel)]="motherDetailsModel.age_diagnosis" name="Mage_diagnosis" required>
+                </div>
+            </div>
+            <div class="title">Father Information</div>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="Father First Name" [(ngModel)]="fatherDetailsModel.fname" name="Ffname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Father Last Name" [(ngModel)]="fatherDetailsModel.lname" name="Flname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Middle Name</span>
+                    <input type="text" placeholder="Father Middle Name" [(ngModel)]="fatherDetailsModel.mname" name="Fmname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" placeholder="Father Birth Day" [(ngModel)]="fatherDetailsModel.bday" name="Fbday" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Is your father still alive?</span><br/>
+                    <input type="checkbox" placeholder="" required style="
+                    height: 30%;
+                    float: left;
+                    width: 20%;
+                " [(ngModel)]="fatherDetailsModel.is_not_death" name="FIsDeath">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+                <div class="input-box">
+                    <span class="details">Cause of Death?</span>
+                    <input type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death">
+                </div>
+                <div class="input-box">
+                    <span class="details">Does your mother have an illness?</span><br/>
+                    <input type="checkbox" placeholder="Does your father have an illness?" required style="
+                      height: 30%;
+                      float: left;
+                      width: 20%;
+                  " [(ngModel)]="fatherDetailsModel.is_not_illness" name="Fis_illnes">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">What illness does your mother have?</span>
+                    <input type="text" placeholder="What illness does your father have?" [(ngModel)]="fatherDetailsModel.illness" name="Fillness">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Age Diagnosis?</span>
+                    <input type="number" placeholder="Age Diagnosis?" [(ngModel)]="fatherDetailsModel.age_diagnosis" name="Fage_diagnosis" required>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
