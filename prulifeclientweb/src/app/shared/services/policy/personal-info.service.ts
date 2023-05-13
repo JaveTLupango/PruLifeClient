@@ -29,6 +29,7 @@ export class PersonalInfoService
 
   updatePersonalInfo(personalinfo: PersonalInfo)
   {
-
+    const apiURL = this.baseurl.url_api+"/update-policy-client-personal-info";
+    return this.http.put<any>(apiURL, personalinfo);
   }
 }

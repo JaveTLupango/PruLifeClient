@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 export class ClientPersonalInfoComponent {
   constructor(private router: Router, private http: HttpClient, private route: ActivatedRoute){}
     Req_id: number = 0;
+    isValid:boolean = true;
     rowCount : number = 0;
     isDisabled: boolean = false;
     fname : string = '';
@@ -36,23 +37,45 @@ export class ClientPersonalInfoComponent {
       data =>
       {
         console.log(data);
-        if(data.dataCount > 0)
+        if(data.StatusCode == -100)
         {
-          this.rowCount = data.dataCount;
-          this.personalmodel = data.data[0];
-          console.log(this.personalmodel);
-          this.fname = this.personalmodel.fname;
-          this.lname = this.personalmodel.lname;
-          this.mname = this.personalmodel.mname;
-          this.bday = this.personalmodel.bday;
-          this.email = this.personalmodel.email;
-          this.gender = this.personalmodel.gender;
-          this.contact_no = this.personalmodel.contact_no;
-          this.id = this.personalmodel.id;
+          Swal.fire({
+            title: 'Something Wrong!',
+            text: data.message,
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ok!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.isValid = false;
+            }
+          })
         }
-        else{
-          this.rowCount = 0;
+        else if(data.StatusCode == 200)
+        {
+          if(data.dataCount > 0)
+          {
+            this.rowCount = data.dataCount;
+            this.personalmodel = data.data[0];
+            console.log(this.personalmodel);
+            this.fname = this.personalmodel.fname;
+            this.lname = this.personalmodel.lname;
+            this.mname = this.personalmodel.mname;
+            this.bday = this.personalmodel.bday;
+            this.email = this.personalmodel.email;
+            this.gender = this.personalmodel.gender;
+            this.contact_no = this.personalmodel.contact_no;
+            this.id = this.personalmodel.id;
+          }        
+          else{
+            this.rowCount = 0;  
+          }                  
+          this.isValid = true;
         }
+        else{          
+          this.isValid = false;
+        }        
       }
     );
   }
@@ -80,16 +103,42 @@ export class ClientPersonalInfoComponent {
               data.message,
               'success'
             )
+            this.router.navigate(['/policy-client-address/'+ this.Req_id]);
           }
           else{
-            console.log(data);
+            Swal.fire(
+              'Something went wrong!',
+              data.message,
+              'error'
+            )
           }
         }
       );
     }
     else{
         this.personalmodel.id = this.id;
-        this.router.navigate(['/policy-client-address/'+ this.Req_id]);
+        //this.router.navigate(['/policy-client-address/'+ this.Req_id]);
+        this.personalInfo.updatePersonalInfo(this.personalmodel).subscribe(
+          data =>
+          {
+            if(data.StatusCode == 200)
+            {
+              Swal.fire(
+                'Personal Information is successfuly Saved!',
+                data.message,
+                'success'
+              )
+              this.router.navigate(['/policy-client-address/'+ this.Req_id]);
+            }
+            else{
+              Swal.fire(
+                'Something went wrong!',
+                data.message,
+                'error'
+              )
+            }
+          }
+        );
         // Swal.fire({
         //   title: 'Do you want to save the changes?',
         //   showDenyButton: true,
