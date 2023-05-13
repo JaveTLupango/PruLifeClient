@@ -25,4 +25,10 @@ export class ClientAddressService {
     const apiURL = this.baseurl.url_api+"/create-client-address-info";
     return this.http.post<any>(apiURL, model);
   }
+
+  UpdateClientAddress(model: ClientAddress)
+  {
+    const apiURL = this.baseurl.url_api+"/update-client-address-info";
+    return this.http.put<any>(apiURL, model);
+  }
 }

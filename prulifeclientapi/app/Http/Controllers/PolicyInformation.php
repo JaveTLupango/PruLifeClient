@@ -159,7 +159,21 @@ class PolicyInformation extends Controller
     }
 
     public function validateClientAddress(Request $request)
-    {
+    {        
+        $policy = RequestUrl::where([
+                        ['id', $request->id],
+                        ['is_active', 1],
+                        ['is_deleted', 0],
+                        ['is_submitted', 0]
+                    ])->get();
+        If(count($policy) == 0)
+        {
+            return response()->json([
+            'message'=>'Request Id is invalid!',
+            'StatusCode'=>-100
+            ]);
+        }
+
         $retval = ClientAddressInfo::where('request_id', $request->id)->get();
         return response()->json([
             'message'=>'Success',

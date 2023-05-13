@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="IsValid">
     <div class="content">
         <form #clientaddressinfoform="ngForm" (ngSubmit)="onsubmit()">
             <div class="title">Client Current Address Information</div>
@@ -44,35 +44,35 @@
             <div class="user-details" *ngIf="!clientAddressModel.is_permanent">
                 <div class="input-box">
                     <span class="details">HOUSE NO</span>
-                    <input type="text" placeholder="Enter your name">
+                    <input type="text" placeholder="Enter your House No." [(ngModel)]="clientPermanentAddressModel.house_no" name="phouse_no" required>
                 </div>
                 <div class="input-box">
                     <span class="details">SUB NAME</span>
-                    <input type="text" placeholder="Enter your name">
+                    <input type="text" placeholder="Enter your Subd Name" [(ngModel)]="clientPermanentAddressModel.subd_name" name="psubd_name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">STREET</span>
-                    <input type="text" placeholder="Enter your name">
+                    <input type="text" placeholder="Enter your Street" [(ngModel)]="clientPermanentAddressModel.street_name" name="pstreet_name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">BARANGAY</span>
-                    <input type="text" placeholder="Enter your username">
+                    <input type="text" placeholder="Enter your Barangay" [(ngModel)]="clientPermanentAddressModel.barangay" name="pbarangay" required>
                 </div>
                 <div class="input-box">
                     <span class="details">MUNICIPALITY</span>
-                    <input type="text" placeholder="Enter your email">
+                    <input type="text" placeholder="Enter your Municipality" [(ngModel)]="clientPermanentAddressModel.municipality" name="pmunicipality" required>
                 </div>
                 <div class="input-box">
                     <span class="details">CITY</span>
-                    <input type="text" placeholder="Enter your number">
+                    <input type="text" placeholder="Enter your City" [(ngModel)]="clientPermanentAddressModel.city" name="pcity" required>
                 </div>
                 <div class="input-box">
                     <span class="details">PROVINCE</span>
-                    <input type="text" placeholder="Enter your number">
+                    <input type="text" placeholder="Enter your Province" [(ngModel)]="clientPermanentAddressModel.province" name="pprovince" required>
                 </div>
                 <div class="input-box">
                     <span class="details">ZIPCODE</span>
-                    <input type="text" placeholder="Enter your number">
+                    <input type="text" placeholder="Enter your Zipcode" [(ngModel)]="clientPermanentAddressModel.zipcode" name="pzipcode" required>
                 </div>
             </div>
             <div class="button">
@@ -89,4 +89,9 @@
             </div>
         </form>
     </div>
+</div>
+<div class="container" *ngIf="!IsValid">
+    <h1 style="color: red;">Invalid Link</h1>
+    <p>The link you've used has expired, is invalid, or deleted.</p>
+    <p>Kindly inform your agent about this matter so that they can be aware and create a new link.</p>
 </div>
