@@ -11,10 +11,9 @@ use Illuminate\Support\Facades\Notification;
 
 class RequestURLController extends Controller
 {
+
     public function createRequestURL(Request $request)
     {
-        $baseURL = 'http://localhost:4200/'; //localbase
-        //$baseURL = 'http://localhost:4200/'; //localbase
 
         $validator = Validator::make($request->all(),
         [
@@ -45,7 +44,7 @@ class RequestURLController extends Controller
         $requestURLData = [
             'body'=>'You Recieved an new email notification.',
             'contentText'=>'Click and Fill out the form.',
-            'url'=> $baseURL.'policy-information-terms/'.$reqURL['id'],
+            'url'=> env('APP_URL_WEB').'/policy-information-terms/'.$reqURL['id'],
             'thankyou'=>'You have 5mins to take action before this link will expired. Thank you.',
         ];
 
@@ -69,7 +68,82 @@ class RequestURLController extends Controller
     {
         return response()->json([
             'message'=>'Request URL successfully fetch',
-            'data'=>RequestUrl::OrderBy('id', 'desc')->get(),
+            'data'=>RequestUrl::Where('is_deleted', 0)->OrderBy('id', 'desc')->get(),
+            'StatusCode'=>200
+        ]);
+    }
+
+    public function requestURLSubmitted(Request $request)
+    {
+        $reqURL = RequestUrl::Where('id',$request->id)->
+        update(
+            [
+                'is_submitted'=>1,
+            ]
+        );
+        return response()->json([
+            'message'=>'Successfully Submitted!',
+            'data'=>$reqURL,
+            'StatusCode'=>200
+        ]);
+    }
+    
+    public function requestURLDeleted(Request $request)
+    {
+        $reqURL = RequestUrl::Where('id',$request->id)->
+        update(
+            [
+                'is_deleted'=>1,
+            ]
+        );
+        return response()->json([
+            'message'=>'Successfully Deleted!',
+            'data'=>$reqURL,
+            'dataNew'=>RequestUrl::Where('is_deleted', 0)->OrderBy('id', 'desc')->get(),
+            'StatusCode'=>200
+        ]);
+    }
+    
+    public function requestURLDeActived(Request $request)
+    {
+        $reqURL = RequestUrl::Where('id',$request->id)->
+        update(
+            [
+                'is_active'=>0,
+            ]
+        );
+        return response()->json([
+            'message'=>'Successfully Deactivated!',
+            'data'=>$reqURL,
+            'dataNew'=>RequestUrl::Where('is_deleted', 0)->OrderBy('id', 'desc')->get(),
+            'StatusCode'=>200
+        ]);
+    }
+
+    public function reSendRequestURL(Request $request)
+    {
+        $retval = RequestUrl::where('id', $request->id)->
+                update(
+                    [
+                        'is_submitted'=>0,
+                    ]
+                );
+        $reqURL = RequestUrl::where('id', $request->id)->get();
+
+        $requestURLData = [
+            'body'=>'You Recieved an new email notification.',
+            'contentText'=>'Click and Fill out the form.',
+            'url'=> env('APP_URL_WEB').'/policy-information-terms/'.$request->id,
+            'thankyou'=>'You have 5mins to take action before this link will expired. Thank you.',
+        ];
+
+        //$emailAddress->notify(new testRequestURL($requestURLData));
+        Notification::send($reqURL[0], new NotifRequestURL($requestURLData));
+
+        return response()->json([
+            'message'=>'Request URL successfully generated',
+            'data'=>$reqURL,
+            'dataNew'=>RequestUrl::Where('is_deleted', 0)->OrderBy('id', 'desc')->get(),
             'StatusCode'=>200
         ]);
     }
