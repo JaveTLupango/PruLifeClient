@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="isValid">
     <div class="title">Client Personal Information</div>
     <div class="content">
         <form #personalinfoform="ngForm" (ngSubmit)="onsubmit()">
@@ -36,27 +36,15 @@
                     </select>
                 </div>
             </div>
-            <!--             
-            <div class="gender-details">
-                <input type="radio" name="gender" value="1" [(ngModel)]="gender" id="dot-1">
-                <input type="radio" name="gender" value="0" [(ngModel)]="gender" id="dot-2">
-                <span class="gender-title">Gender</span>
-                <div class="category">
-                    <label for="dot-1">
-                        <span class="dot one"></span>
-                        <span class="gender">Male</span>
-                        </label>
-                    <label for="dot-2">
-                        <span class="dot two"></span>
-                        <span class="gender">Female</span>
-                    </label>
-                </div>
-            </div>
-             -->
             <div class="button">
                 <input type="submit" value="Save">
                 <!-- <a href="/client-address">next</a> -->
             </div>
         </form>
     </div>
+</div>
+<div class="container" *ngIf="!isValid">
+    <h1 style="color: red;">Invalid Link</h1>
+    <p>The link you've used has expired, is invalid, or deleted.</p>
+    <p>Kindly inform your agent about this matter so that they can be aware and create a new link.</p>
 </div>
