@@ -31,6 +31,8 @@ Route::get('/auth/users', [AuthController::class,'listofuser'])->middleware('aut
 Route::post('/auth/logout', [AuthController::class,'logout'])->middleware('auth:sanctum');
 Route::post('/request-url/create', [RequestURLController::class,'createRequestURL'])->middleware('auth:sanctum');
 Route::get('/request-url/list', [RequestURLController::class,'getListofRequestURL'])->middleware('auth:sanctum');
+Route::post('/request-url/delete', [RequestURLController::class,'requestURLDeleted'])->middleware('auth:sanctum');
+Route::post('/request-url/resend', [RequestURLController::class,'reSendRequestURL'])->middleware('auth:sanctum');
 //requestURLSubmitted
 Route::post('/request-url/submitted', [RequestURLController::class, 'requestURLSubmitted']);
 
