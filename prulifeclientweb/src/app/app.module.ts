@@ -18,6 +18,7 @@ import { TestingComponent } from './testing/testing.component';
 import { ListofSiblingsComponent } from './listof-siblings/listof-siblings.component';
 import { AddSiblingComponent } from './add-sibling/add-sibling.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ClientdatapreviewComponent } from './clientdatapreview/clientdatapreview.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LogoutComponent } from './logout/logout.component';
     TestingComponent,
     ListofSiblingsComponent,
     AddSiblingComponent,
-    LogoutComponent
+    LogoutComponent,
+    ClientdatapreviewComponent
   ],
   imports: [
     BrowserModule,

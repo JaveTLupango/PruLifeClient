@@ -18,6 +18,7 @@ export class ClientParentInformationComponent {
   dataCountM: number = 0;
   dataCountF: number = 0;
 
+
   ngOnInit()
   {
     this.Req_id = this.route.snapshot.params['id'];
@@ -77,7 +78,7 @@ export class ClientParentInformationComponent {
         }
       );
     }
-    
+
     this.router.navigate(['/policy-list-siblings/'+ this.Req_id]);
   }
 }

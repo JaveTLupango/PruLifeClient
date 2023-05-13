@@ -73,4 +73,49 @@ class RequestURLController extends Controller
             'StatusCode'=>200
         ]);
     }
+
+    public function requestURLSubmitted(Request $request)
+    {
+        $reqURL = RequestUrl::Where('id',$request->id)->
+        update(
+            [
+                'is_submitted'=>1,
+            ]
+        );
+        return response()->json([
+            'message'=>'Successfully Submitted!',
+            'data'=>$reqURL,
+            'StatusCode'=>200
+        ]);
+    }
+    
+    public function requestURLDeleted(Request $request)
+    {
+        $reqURL = RequestUrl::Where('id',$request->id)->
+        update(
+            [
+                'is_deleted'=>1,
+            ]
+        );
+        return response()->json([
+            'message'=>'Successfully Deleted!',
+            'data'=>$reqURL,
+            'StatusCode'=>200
+        ]);
+    }
+    
+    public function requestURLDeActived(Request $request)
+    {
+        $reqURL = RequestUrl::Where('id',$request->id)->
+        update(
+            [
+                'is_active'=>0,
+            ]
+        );
+        return response()->json([
+            'message'=>'Successfully Deactivated!',
+            'data'=>$reqURL,
+            'StatusCode'=>200
+        ]);
+    }
 }

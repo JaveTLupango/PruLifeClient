@@ -14,6 +14,7 @@
                 <th>Alias</th>
                 <th>Email</th>
                 <th>Date</th>
+                <th>Client Status</th>
                 <th>Status</th>
                 <th>Option</th>
             </tr>
@@ -23,10 +24,12 @@
                 <td>{{ rqURL.receipt_alias }}</td>
                 <td>{{ rqURL.email }}</td>
                 <td>{{ rqURL.created_at }}</td>
+                <td *ngIf="rqURL.is_submitted">Submitted</td>
+                <td *ngIf="!rqURL.is_submitted">Ongoing</td>
                 <td *ngIf="rqURL.is_active">Active</td>
                 <td *ngIf="!rqURL.is_active">Inactive</td>
                 <td>
-                    <button type="button" class="requestURL btn btn-success"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+                    <button type="button" class="requestURL btn btn-success" (click)="btnViewDetails(rqURL.id)"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
                     <button type="button" class="requestURL btn btn-warning"><i class="fa fa-repeat" aria-hidden="true"></i></button>
                     <button type="button" class="requestURL btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>

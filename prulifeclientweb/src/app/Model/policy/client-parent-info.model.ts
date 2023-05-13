@@ -14,4 +14,5 @@ export class ClientParentInfo {
   is_not_illness : boolean = false;
   illness : string = '';
   age_diagnosis: number = 0;
+  status : boolean = false;
 }

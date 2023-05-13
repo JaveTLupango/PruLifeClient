@@ -14,7 +14,12 @@ class PolicyInformation extends Controller
 {
     public function validatePolicy(Request $request)
     {
-        $policy = RequestUrl::where('id', $request->id)->get();
+        $policy = RequestUrl::where([
+            ['id', $request->id],
+            ['is_active', 1],
+            ['is_deleted', 0],
+            ['is_submitted', 0]
+        ])->get();
         return response()->json([
             'message'=>'Success',
             'data'=>$policy,
@@ -569,4 +574,36 @@ class PolicyInformation extends Controller
             'StatusCode'=>200
         ]);
     }
+
+    public function getPreviewClientData(Request $request)
+    {
+        $retvalPI = ClientPersonalInfo::where('request_id', $request->id)->get();
+        $retvalCA = ClientAddressInfo::where('request_id', $request->id)->get();
+        $retvalPIMother = ClientParentInfo::where([
+            ['request_id', $request->id],
+            ['type', 0]
+        ])->get();
+        
+        $retvalPIFather = ClientParentInfo::where([
+            ['request_id', $request->id],
+            ['type', 1]
+        ])->get();
+        $retvalCS = ClientSiblingsInfo::where('request_id', $request->id)->get();
+        
+        return response()->json([
+            'message'=>'Success',
+            'dataMother'=>$retvalPIMother,
+            'dataCountM'=>count($retvalPIMother),
+            'dataFather'=>$retvalPIFather,
+            'dataCountF'=>count($retvalPIFather),
+            'dataPI'=>$retvalPI,
+            'dataCountPI'=>count($retvalPI),
+            'dataCA'=>$retvalCA,
+            'dataCountCA'=>count($retvalCA),
+            'dataCS'=>$retvalCS,
+            'dataCountCS'=>count($retvalCS),
+            'StatusCode'=>200
+        ]);
+    }
+
 }

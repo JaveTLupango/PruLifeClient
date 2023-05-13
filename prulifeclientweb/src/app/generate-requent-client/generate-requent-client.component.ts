@@ -32,4 +32,8 @@ export class GenerateRequentClientComponent {
         // }
         );
     }
+  btnViewDetails(id:any)
+  {
+    this.router.navigate(['/policy-client-data-preview/'+ id]);
+  }
 }
