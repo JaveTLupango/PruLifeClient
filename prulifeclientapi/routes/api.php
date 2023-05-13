@@ -31,6 +31,9 @@ Route::get('/auth/users', [AuthController::class,'listofuser'])->middleware('aut
 Route::post('/auth/logout', [AuthController::class,'logout'])->middleware('auth:sanctum');
 Route::post('/request-url/create', [RequestURLController::class,'createRequestURL'])->middleware('auth:sanctum');
 Route::get('/request-url/list', [RequestURLController::class,'getListofRequestURL'])->middleware('auth:sanctum');
+//requestURLSubmitted
+Route::post('/request-url/submitted', [RequestURLController::class, 'requestURLSubmitted']);
+
 
 Route::get('/emails/requestURL', function () {
     Mail::to('pangga.jave@gmail.com')->send(new RequestURL);

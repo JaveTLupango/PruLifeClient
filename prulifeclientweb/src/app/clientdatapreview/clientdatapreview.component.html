@@ -91,40 +91,41 @@
             <div class="user-details" *ngIf="!clientAddressModel.is_permanent">
                 <div class="input-box">
                     <span class="details">HOUSE NO</span>
-                    <input type="text" placeholder="Enter your name">
+                    <input type="text" placeholder="Enter your House No." [(ngModel)]="clientPermanentAddressModel.house_no" name="house_no" required>
                 </div>
                 <div class="input-box">
                     <span class="details">SUB NAME</span>
-                    <input type="text" placeholder="Enter your name">
+                    <input type="text" placeholder="Enter your Subd Name" [(ngModel)]="clientPermanentAddressModel.subd_name" name="subd_name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">STREET</span>
-                    <input type="text" placeholder="Enter your name">
+                    <input type="text" placeholder="Enter your Street" [(ngModel)]="clientPermanentAddressModel.street_name" name="street_name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">BARANGAY</span>
-                    <input type="text" placeholder="Enter your username">
+                    <input type="text" placeholder="Enter your Barangay" [(ngModel)]="clientPermanentAddressModel.barangay" name="barangay" required>
                 </div>
                 <div class="input-box">
                     <span class="details">MUNICIPALITY</span>
-                    <input type="text" placeholder="Enter your email">
+                    <input type="text" placeholder="Enter your Municipality" [(ngModel)]="clientPermanentAddressModel.municipality" name="municipality" required>
                 </div>
                 <div class="input-box">
                     <span class="details">CITY</span>
-                    <input type="text" placeholder="Enter your number">
+                    <input type="text" placeholder="Enter your City" [(ngModel)]="clientPermanentAddressModel.city" name="city" required>
                 </div>
                 <div class="input-box">
                     <span class="details">PROVINCE</span>
-                    <input type="text" placeholder="Enter your number">
+                    <input type="text" placeholder="Enter your Province" [(ngModel)]="clientPermanentAddressModel.province" name="province" required>
                 </div>
                 <div class="input-box">
                     <span class="details">ZIPCODE</span>
-                    <input type="text" placeholder="Enter your number">
+                    <input type="text" placeholder="Enter your Zipcode" [(ngModel)]="clientPermanentAddressModel.zipcode" name="zipcode" required>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
 <div class="container">
     <button class="btn btn-success title" (click)="btn03()">Client Parent Information</button>
     <div class="content" *ngIf="content3">
@@ -233,4 +234,64 @@
             </div>
         </form>
     </div>
+</div>
+
+<div class="container">
+    <button class="btn btn-success title" (click)="btn04()">Client Siblings Information</button>
+    <div class="content" *ngIf="content4">
+        <div *ngFor="let item of listOfSiblings">
+            <br>
+            <button class="btn btn-warning title" (click)="btn05( item )"> - {{ item.fname + " " + item.lname }}</button>
+            <div class="content" *ngIf="item.status">
+                <form #personalinfomotherform="ngForm">
+
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">First Name</span>
+                            <input type="text" placeholder="Mother First Name" value="{{ item.fname }}" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Last Name</span>
+                            <input type="text" placeholder="Mother Last Name" value="{{ item.lname }}" name="Mlname" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Middle Name</span>
+                            <input type="text" placeholder="Mother Middle Name" value="{{ item.mname }}" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Birth Date</span>
+                            <input type="date" placeholder="Mother Birth Day" value="{{ item.bday }}" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Is your brother/sister still alive?</span><br/>
+                            <input type="text" *ngIf="item.is_not_death" value="YES" placeholder="Does your mother have an illness?" required>
+                            <input type="text" *ngIf="!item.is_not_death" value="NO" placeholder="Does your mother have an illness?" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Cause of Death?</span>
+                            <input type="text" placeholder="Enter your name" value="{{ item.cause_of_death }}" name="Mcause_of_death">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Does your brother/sistem have an illness?</span><br/>
+                            <input type="text" *ngIf="item.is_not_illness" value="YES" placeholder="Does your mother have an illness?" required>
+                            <input type="text" *ngIf="!item.is_not_illness" value="NO" placeholder="Does your mother have an illness?" required>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">What illness does your mother have?</span>
+                            <input type="text" placeholder="What illness does your mother have?" value="{{ item.illness }}" name="Millness">
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Age Diagnosis?</span>
+                            <input type="number" placeholder="Age Diagnosis?" value="{{ item.age_diagnosis }}" name="Mage_diagnosis" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <button class="btn btn-primary" (click)="btnsubmit()">Submit</button>
 </div>

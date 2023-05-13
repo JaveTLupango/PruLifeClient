@@ -6,6 +6,7 @@ export class RequestURL {
     is_active : boolean = false;
     is_deleted : boolean = false;
     gen_id : string = '';
+    is_submitted :boolean = false;
     created_at : Date = new Date();
     updated_at : Date = new Date();
 }

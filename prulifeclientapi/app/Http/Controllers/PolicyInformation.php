@@ -14,7 +14,12 @@ class PolicyInformation extends Controller
 {
     public function validatePolicy(Request $request)
     {
-        $policy = RequestUrl::where('id', $request->id)->get();
+        $policy = RequestUrl::where([
+            ['id', $request->id],
+            ['is_active', 1],
+            ['is_deleted', 0],
+            ['is_submitted', 0]
+        ])->get();
         return response()->json([
             'message'=>'Success',
             'data'=>$policy,
@@ -600,4 +605,5 @@ class PolicyInformation extends Controller
             'StatusCode'=>200
         ]);
     }
+
 }
