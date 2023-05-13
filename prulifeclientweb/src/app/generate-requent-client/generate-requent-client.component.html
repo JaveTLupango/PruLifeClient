@@ -19,7 +19,12 @@
                 <th>Option</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="isLoading">
+            <tr>
+                <h3>Please Wait....</h3>
+            </tr>
+        </tbody>
+        <tbody *ngIf="!isLoading">
             <tr *ngFor="let rqURL of requestURLList">
                 <td>{{ rqURL.receipt_alias }}</td>
                 <td>{{ rqURL.email }}</td>

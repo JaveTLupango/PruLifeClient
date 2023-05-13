@@ -122,6 +122,12 @@ class RequestURLController extends Controller
 
     public function reSendRequestURL(Request $request)
     {
+        $retval = RequestUrl::where('id', $request->id)->
+                update(
+                    [
+                        'is_submitted'=>0,
+                    ]
+                );
         $reqURL = RequestUrl::where('id', $request->id)->get();
 
         $requestURLData = [
@@ -137,6 +143,7 @@ class RequestURLController extends Controller
         return response()->json([
             'message'=>'Request URL successfully generated',
             'data'=>$reqURL,
+            'dataNew'=>RequestUrl::Where('is_deleted', 0)->OrderBy('id', 'desc')->get(),
             'StatusCode'=>200
         ]);
     }

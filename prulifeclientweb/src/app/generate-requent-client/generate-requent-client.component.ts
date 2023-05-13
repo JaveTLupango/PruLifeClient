@@ -19,6 +19,7 @@ export class GenerateRequentClientComponent {
   public visible = false;
   requestURL : any;
   requestURLList :RequestURL[] | undefined;
+  isLoading : boolean = false;
 
   ngOnInit(){
       this.visible = this.appC.isLogin;
@@ -37,6 +38,7 @@ export class GenerateRequentClientComponent {
 
   btnReSendEmail(id:any)
   {
+    this.isLoading = true;
     this.request_url.resendRequestURL(id).subscribe(
       data=>
       {
@@ -46,7 +48,8 @@ export class GenerateRequentClientComponent {
             'Success!',
             'Sending Request is successfully delivered!.',
             'success'
-          )
+          );          
+          this.requestURLList = data.dataNew;
         }
         else{
           Swal.fire(
@@ -56,12 +59,14 @@ export class GenerateRequentClientComponent {
           )
           console.log(data);
         }
+        this.isLoading = false;
       }
     );
   }
 
   btnDeleteReqURL(id:any)
-  {
+  {    
+    this.isLoading = true;
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -104,7 +109,8 @@ export class GenerateRequentClientComponent {
             'error'
           )
           console.log(data);
-        }
+        }        
+        this.isLoading = false;
       }
     );
   }
