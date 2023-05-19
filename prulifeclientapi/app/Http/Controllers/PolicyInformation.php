@@ -607,9 +607,12 @@ class PolicyInformation extends Controller
         $retval = ClientSiblingsInfo::where([
             ['id', $request->id]
         ])->delete();
+        
+        $retval = ClientSiblingsInfo::where('request_id', $request->reqid)->get();
+
         return response()->json([
             'message'=>'Success',
-            'data'=>ClientSiblingsInfo::where('request_id', $request->reqid)->get(),
+            'data'=>$retval,
             'dataCount'=>count($retval),
             'StatusCode'=>200
         ]);

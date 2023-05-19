@@ -38,6 +38,7 @@ export class ListofSiblingsComponent {
 
   delete(id:number)
   {
+    console.log(id); console.log(this.Req_id);
     this.services.delete(id, this.Req_id).subscribe(
       data =>
       {
