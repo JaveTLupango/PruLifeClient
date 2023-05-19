@@ -61,6 +61,7 @@ Route::put('/update-client-parent-info', [PolicyInformation::class, 'UpdateClien
 
 Route::post('/policy-client-sibling-list', [PolicyInformation::class, 'getListOfSiblings']);
 Route::post('/policy-client-sibling-info', [PolicyInformation::class, 'getSiblingsInfo']);
+Route::post('/delete-client-sibling-info', [PolicyInformation::class, 'deleteSiblingsInfo']);
 Route::post('/create-client-sibling-info', [PolicyInformation::class, 'InsertClientSiblings']);
 Route::put('/update-client-sibling-info', [PolicyInformation::class, 'UpdateClientSiblings']);
 

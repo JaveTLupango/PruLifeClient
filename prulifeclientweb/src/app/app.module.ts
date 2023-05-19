@@ -19,6 +19,7 @@ import { ListofSiblingsComponent } from './listof-siblings/listof-siblings.compo
 import { AddSiblingComponent } from './add-sibling/add-sibling.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ClientdatapreviewComponent } from './clientdatapreview/clientdatapreview.component';
+import { UpdateClientSiblingsInfoComponent } from './update-client-siblings-info/update-client-siblings-info.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ClientdatapreviewComponent } from './clientdatapreview/clientdataprevie
     ListofSiblingsComponent,
     AddSiblingComponent,
     LogoutComponent,
-    ClientdatapreviewComponent
+    ClientdatapreviewComponent,
+    UpdateClientSiblingsInfoComponent
   ],
   imports: [
     BrowserModule,

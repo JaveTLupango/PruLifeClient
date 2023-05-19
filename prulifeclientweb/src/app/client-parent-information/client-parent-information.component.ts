@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientParentInfo } from '../Model/policy/client-parent-info.model';
 import { ClientParentInfoService } from '../shared/services/policy/client-parent-info.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-client-parent-information',
@@ -17,6 +18,8 @@ export class ClientParentInformationComponent {
   service : ClientParentInfoService = new ClientParentInfoService(this.http);
   dataCountM: number = 0;
   dataCountF: number = 0;
+  mValidAction : boolean = false;
+  fValidAction : boolean = false;
 
 
   ngOnInit()
@@ -46,6 +49,9 @@ export class ClientParentInformationComponent {
 
   onsubmit()
   {
+    this.mValidAction = false;
+    this.fValidAction = false;
+
     if(this.dataCountM == 0)
     {
       this.motherDetailsModel.request_id = this.Req_id
@@ -55,12 +61,37 @@ export class ClientParentInformationComponent {
         data =>
         {
           console.log(data);
-          this.motherDetailsModel = data.data[0];
-          console.log(this.motherDetailsModel);
+          if(data.StatusCode == 200)
+          {
+            this.motherDetailsModel = data.data[0];
+            console.log(this.motherDetailsModel);
+            this.mValidAction = true;
+          }
+          else
+          {
+            this.mValidAction = false;
+          }
         }
       );
     }
-
+    else
+    {
+        this.service.update(this.motherDetailsModel).subscribe(
+          data =>
+          {
+            if(data.StatusCode == 200)
+            {
+              console.log(data);
+              this.mValidAction = true;
+            }
+            else
+            {
+              console.log(data);
+              this.mValidAction = false;
+            }
+          }
+        );
+    }
 
     if(this.dataCountF == 0)
     {
@@ -73,8 +104,34 @@ export class ClientParentInformationComponent {
         data =>
         {
           console.log(data);
-          this.fatherDetailsModel = data.data[0];
-          console.log(this.fatherDetailsModel);
+          if(data.StatusCode == 200)
+          {
+            this.fatherDetailsModel = data.data[0];
+            console.log(this.fatherDetailsModel);
+            this.fValidAction = true;
+          }
+          else
+          {
+            this.fValidAction = false;
+          }
+        }
+      );
+    }
+    else
+    {
+      this.service.update(this.fatherDetailsModel).subscribe(
+        data =>
+        {
+          if(data.StatusCode == 200)
+          {
+            console.log(data);
+            this.fValidAction = true;
+          }
+          else
+          {
+            console.log(data);
+            this.fValidAction = false;
+          }
         }
       );
     }

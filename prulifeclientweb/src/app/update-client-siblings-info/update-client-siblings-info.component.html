@@ -1,0 +1,77 @@
+<div class="container">
+
+    <h1>Add Sibling</h1>
+    <div class="content">
+        <form #clientsiblingsform="ngForm" (ngSubmit)="onsubmit()">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="First Name" [(ngModel)]="modelSiblings.fname" name="fname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Last Name" [(ngModel)]="modelSiblings.lname" name="lname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Middle Name</span>
+                    <input type="text" placeholder="Middle Name" [(ngModel)]="modelSiblings.fname" name="fname" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth Date</span>
+                    <input type="date" placeholder="Birth Day" [(ngModel)]="modelSiblings.bday" name="bday" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Is your bother/sister still alive?</span><br/>
+                    <input type="checkbox" placeholder="" required style="
+                    height: 30%;
+                    float: left;
+                    width: 20%;
+                " [(ngModel)]="modelSiblings.is_not_death" name="is_not_death">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+                <div class="input-box">
+                    <span class="details">Cause of Death?</span>
+                    <input type="text" placeholder="" [(ngModel)]="modelSiblings.cause_of_death" name="cause_of_death" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Does your bother/sister have an illness?</span><br/>
+                    <input type="checkbox" placeholder="" required style="
+                      height: 30%;
+                      float: left;
+                      width: 20%;
+                  " [(ngModel)]="modelSiblings.is_not_illness" name="is_not_illness">
+                    <span class="details"> Check if (YES)</span>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">What illness does your bother/sister have?</span>
+                    <input type="text" placeholder="" [(ngModel)]="modelSiblings.illness" name="illness" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Age Diagnosis?</span>
+                    <input type="number" placeholder="" [(ngModel)]="modelSiblings.age_diagnosis" name="age_diagnosis" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Gender</span>
+                    <select name="type" id="cars" [(ngModel)]="modelSiblings.type" required>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                  </select>
+                </div>
+            </div>
+            <div class="button">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="/policy-list-of-siblings/{{ Req_id }}" class="requestURL btn btn-success" style="
+                  width: 100%;
+              "><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+                    </div>
+                    <div class="col-6">
+                        <input type="submit" value="Save">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

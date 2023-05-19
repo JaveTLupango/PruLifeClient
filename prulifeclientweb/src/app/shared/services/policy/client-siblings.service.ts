@@ -27,4 +27,28 @@ export class ClientSiblingsService {
     return this.http.post<any>(apiURL, modelSiblings);
   }
 
+  getInfo(id: number)
+  {
+    const apiURL = this.baseurl.url_api+"/policy-client-sibling-info";
+    const model = this.reqModel;
+    model.id = id;
+    return this.http.post<any>(apiURL, model);
+  }
+
+  update(model: ClientParentInfo)
+  {
+    const apiURL = this.baseurl.url_api+"/update-client-sibling-info";
+    return this.http.put<any>(apiURL, model);
+  }
+
+  delete(id: number, reqid: number)
+  {
+    const apiURL = this.baseurl.url_api+"/delete-client-sibling-info";
+    const model = this.reqModel;
+    model.id = id;
+    model.reqid = reqid;
+    return this.http.post<any>(apiURL, model);
+  }
+
 }
+

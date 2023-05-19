@@ -12,6 +12,7 @@ import { ListofSiblingsComponent } from './listof-siblings/listof-siblings.compo
 import { AddSiblingComponent } from './add-sibling/add-sibling.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ClientdatapreviewComponent } from './clientdatapreview/clientdatapreview.component';
+import { UpdateClientSiblingsInfoComponent } from './update-client-siblings-info/update-client-siblings-info.component';
 
 const routes: Routes = [
   {path: '', component:GenerateRequentClientComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'policy-list-of-siblings/:id', component:ListofSiblingsComponent},
   {path:'policy-add-siblings/:id', component:AddSiblingComponent},
   {path:'policy-list-siblings/:id', component:ListofSiblingsComponent},
+  {path:'update-siblings-info/:id/:reqid', component:UpdateClientSiblingsInfoComponent},
   {path:'policy-client-data-preview/:id', component:ClientdatapreviewComponent},
   {path:'logout', component:LogoutComponent},
   {path:'testing', component:TestingComponent}

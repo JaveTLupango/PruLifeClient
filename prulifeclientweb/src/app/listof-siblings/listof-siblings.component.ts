@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientParentInfo } from '../Model/policy/client-parent-info.model';
 import { ClientSiblingsService } from '../shared/services/policy/client-siblings.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listof-siblings',
@@ -25,6 +26,38 @@ export class ListofSiblingsComponent {
       {
         console.log(data);
         this.listOfSiblings = data.data;
+      }
+    );
+  }
+
+  edit(id:number)
+  {
+    console.log(id);
+    this.router.navigate(['/update-siblings-info/'+ id +'/'+this.Req_id]);
+  }
+
+  delete(id:number)
+  {
+    this.services.delete(id, this.Req_id).subscribe(
+      data =>
+      {
+        if(data.StatusCode == 200)
+        {            
+            this.listOfSiblings = data.data;
+            Swal.fire(
+              'Successfuly Updated!',
+              'Success!',
+              'success'
+            );
+        }
+        else
+        {
+            Swal.fire(
+              'Something went wrong!',
+              data.message,
+              'error'
+            );    
+        }
       }
     );
   }

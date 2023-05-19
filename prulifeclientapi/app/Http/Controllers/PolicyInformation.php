@@ -467,7 +467,6 @@ class PolicyInformation extends Controller
     public function getSiblingsInfo(Request $request)
     {
         $retval = ClientSiblingsInfo::where([
-            ['request_id', $request->request_id],
             ['id', $request->id]
         ])->get();
         return response()->json([
@@ -599,6 +598,19 @@ class PolicyInformation extends Controller
         return response()->json([
             'message'=>'Successfully Updated!',
             'data'=>$retval,
+            'StatusCode'=>200
+        ]);
+    }
+
+    public function deleteSiblingsInfo(Request $request)
+    {
+        $retval = ClientSiblingsInfo::where([
+            ['id', $request->id]
+        ])->delete();
+        return response()->json([
+            'message'=>'Success',
+            'data'=>ClientSiblingsInfo::where('request_id', $request->reqid)->get(),
+            'dataCount'=>count($retval),
             'StatusCode'=>200
         ]);
     }

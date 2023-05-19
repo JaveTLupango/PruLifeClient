@@ -24,7 +24,7 @@
                 <td *ngIf="i.type">Male</td>
                 <td *ngIf="!i.type">Female</td>
                 <td>
-                    <button type="button" class="requestURL btn btn-warning"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                    <button type="button" class="requestURL btn btn-warning" (click)="edit(i.id)"><i class="fa fa-edit" aria-hidden="true"></i></button>
                     <button type="button" class="requestURL btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </td>
             </tr>
