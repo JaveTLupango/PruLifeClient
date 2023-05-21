@@ -20,6 +20,9 @@ import { AddSiblingComponent } from './add-sibling/add-sibling.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ClientdatapreviewComponent } from './clientdatapreview/clientdatapreview.component';
 import { UpdateClientSiblingsInfoComponent } from './update-client-siblings-info/update-client-siblings-info.component';
+import { AdsenseModule } from 'ng2-adsense';
+import { AdscomponentComponent } from './adscomponent/adscomponent.component';
+import { Router, RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -36,13 +39,15 @@ import { UpdateClientSiblingsInfoComponent } from './update-client-siblings-info
     AddSiblingComponent,
     LogoutComponent,
     ClientdatapreviewComponent,
-    UpdateClientSiblingsInfoComponent
+    UpdateClientSiblingsInfoComponent,
+    AdscomponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AdsenseModule.forRoot()
   ],
   providers: [  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

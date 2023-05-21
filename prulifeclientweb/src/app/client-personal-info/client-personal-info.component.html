@@ -42,9 +42,13 @@
             </div>
         </form>
     </div>
+
+    <app-adscomponent></app-adscomponent>
 </div>
 <div class="container" *ngIf="!isValid">
     <h1 style="color: red;">Invalid Link</h1>
     <p>The link you've used has expired, is invalid, or deleted.</p>
     <p>Kindly inform your agent about this matter so that they can be aware and create a new link.</p>
+
+    <app-adscomponent></app-adscomponent>
 </div>

@@ -39,14 +39,32 @@ export class ListofSiblingsComponent {
   delete(id:number)
   {
     console.log(id); console.log(this.Req_id);
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.DeleteSibling(id);
+      }
+    })
+  }
+
+  DeleteSibling(id:number)
+  {
     this.services.delete(id, this.Req_id).subscribe(
       data =>
       {
         if(data.StatusCode == 200)
-        {            
+        {
             this.listOfSiblings = data.data;
             Swal.fire(
-              'Successfuly Updated!',
+              'Successfuly Deleted!',
               'Success!',
               'success'
             );
@@ -57,7 +75,7 @@ export class ListofSiblingsComponent {
               'Something went wrong!',
               data.message,
               'error'
-            );    
+            );
         }
       }
     );

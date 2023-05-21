@@ -145,4 +145,9 @@ export class ClientdatapreviewComponent {
         }
       );
   }
+
+  previous()
+  {
+    this.router.navigate(['/policy-list-siblings/'+ this.Req_id]);
+  }
 }
