@@ -11,6 +11,8 @@ class RequestUrl extends Model
 {
     use HasFactory,Notifiable,HasApiTokens;
 
+    protected $table = 'request_url';
+
     protected $fillable = [
         'user_id',
         'email',
