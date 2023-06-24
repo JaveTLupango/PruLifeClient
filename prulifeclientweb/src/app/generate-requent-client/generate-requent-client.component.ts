@@ -27,7 +27,7 @@ export class GenerateRequentClientComponent {
         data=>
         {
           this.requestURL = data;
-          this.requestURLList = this.requestURL.data;          
+          this.requestURLList = this.requestURL.data;
         }
         );
     }
@@ -48,7 +48,7 @@ export class GenerateRequentClientComponent {
             'Success!',
             'Sending Request is successfully delivered!.',
             'success'
-          );          
+          );
           this.requestURLList = data.dataNew;
         }
         else{
@@ -65,7 +65,7 @@ export class GenerateRequentClientComponent {
   }
 
   btnDeleteReqURL(id:any)
-  {    
+  {
     this.isLoading = true;
     Swal.fire({
       title: 'Are you sure?',
@@ -109,7 +109,7 @@ export class GenerateRequentClientComponent {
             'error'
           )
           console.log(data);
-        }        
+        }
         this.isLoading = false;
       }
     );

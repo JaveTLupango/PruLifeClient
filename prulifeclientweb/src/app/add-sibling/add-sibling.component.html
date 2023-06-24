@@ -30,7 +30,8 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Cause of Death?</span>
-                    <input type="text" placeholder="" [(ngModel)]="modelSiblings.cause_of_death" name="cause_of_death" required>
+                    <input *ngIf="!modelSiblings.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="modelSiblings.cause_of_death" name="cause_of_death" disabled>
+                    <input *ngIf="modelSiblings.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="modelSiblings.cause_of_death" name="cause_of_death" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Does your bother/sister have an illness?</span><br/>
@@ -44,12 +45,15 @@
 
                 <div class="input-box">
                     <span class="details">What illness does your bother/sister have?</span>
-                    <input type="text" placeholder="" [(ngModel)]="modelSiblings.illness" name="illness" required>
+                    <input *ngIf="!modelSiblings.is_not_illness" type="text" placeholder="Illness" [(ngModel)]="modelSiblings.illness" name="illness" disabled>
+                    <input *ngIf="modelSiblings.is_not_illness" type="text" placeholder="Illness" [(ngModel)]="modelSiblings.illness" name="illness" required>
                 </div>
 
                 <div class="input-box">
                     <span class="details">Age Diagnosis?</span>
-                    <input type="number" placeholder="" [(ngModel)]="modelSiblings.age_diagnosis" name="age_diagnosis" required>
+                    <input *ngIf="!modelSiblings.is_not_illness" type="number" placeholder="" [(ngModel)]="modelSiblings.age_diagnosis" name="age_diagnosis" disabled>
+                    <input *ngIf="modelSiblings.is_not_illness" type="number" placeholder="" [(ngModel)]="modelSiblings.age_diagnosis" name="age_diagnosis" required>
+
                 </div>
                 <div class="input-box">
                     <span class="details">Gender</span>

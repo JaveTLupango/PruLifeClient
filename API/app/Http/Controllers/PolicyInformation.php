@@ -43,7 +43,7 @@ class PolicyInformation extends Controller
                 'StatusCode'=>-100
             ]);
         }
-        
+
         $retval = ClientPersonalInfo::where('request_id', $request->id)->get();
         return response()->json([
             'message'=>'Success',
@@ -159,7 +159,7 @@ class PolicyInformation extends Controller
     }
 
     public function validateClientAddress(Request $request)
-    {        
+    {
         $policy = RequestUrl::where([
                         ['id', $request->id],
                         ['is_active', 1],
@@ -243,7 +243,7 @@ class PolicyInformation extends Controller
             'StatusCode'=>200
         ]);
     }
-    
+
     public function UpdateClientAddress(Request $request)
     {
 
@@ -313,12 +313,12 @@ class PolicyInformation extends Controller
             ['request_id', $request->id],
             ['type', 0]
         ])->get();
-        
-        $retvalFather = ClientParentInfo::where([
+
+        $retvalFather = ClientParentInfo::where([  
             ['request_id', $request->id],
             ['type', 1]
         ])->get();
-        
+
         return response()->json([
             'message'=>'Success',
             'dataMother'=>$retvalMother,
@@ -328,7 +328,7 @@ class PolicyInformation extends Controller
             'StatusCode'=>200
         ]);
     }
-    
+
     public function InsertClientParent(Request $request)
     {
 
@@ -392,7 +392,7 @@ class PolicyInformation extends Controller
     }
 
     public function UpdateClientParent(Request $request)
-    { 
+    {
         $validator = Validator::make($request->all(),
         [
             'user_id'=>'required',
@@ -479,7 +479,7 @@ class PolicyInformation extends Controller
 
     public function InsertClientSiblings(Request $request)
     {
-        
+
         $validator = Validator::make($request->all(),
         [
             'user_id'=>'required',
@@ -541,7 +541,7 @@ class PolicyInformation extends Controller
 
     public function UpdateClientSiblings(Request $request)
     {
-        
+
         $validator = Validator::make($request->all(),
         [
             'user_id'=>'required',
@@ -607,7 +607,7 @@ class PolicyInformation extends Controller
         $retval = ClientSiblingsInfo::where([
             ['id', $request->id]
         ])->delete();
-        
+
         $retval = ClientSiblingsInfo::where('request_id', $request->reqid)->get();
 
         return response()->json([
@@ -626,13 +626,13 @@ class PolicyInformation extends Controller
             ['request_id', $request->id],
             ['type', 0]
         ])->get();
-        
+
         $retvalPIFather = ClientParentInfo::where([
             ['request_id', $request->id],
             ['type', 1]
         ])->get();
         $retvalCS = ClientSiblingsInfo::where('request_id', $request->id)->get();
-        
+
         return response()->json([
             'message'=>'Success',
             'dataMother'=>$retvalPIMother,

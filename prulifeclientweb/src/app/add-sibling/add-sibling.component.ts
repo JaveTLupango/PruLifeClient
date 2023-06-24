@@ -29,7 +29,7 @@ export class AddSiblingComponent {
       this.services.create(this.modelSiblings).subscribe(
         data=>
         {
-          console.log(data);
+          console.log(JSON.stringify(data));
           if(data.StatusCode == 200)
           {
               Swal.fire(
@@ -39,8 +39,46 @@ export class AddSiblingComponent {
               );            
             this.router.navigate(['/policy-list-of-siblings/'+ this.Req_id]);
           }
-         
+          else
+          {
+            var bodytext = "";
+
+            // data.console.errors
+            // .forEach(() e => {
+            //   bodytext += "<br>"+e[0];
+            // });
+            this.fun_warning("Error",
+                data.message
+            );
+          }       
+        },
+        error =>
+        {
+          debugger;
+          console.log('oops',JSON.parse(error));   
+
+          this.fun_warning("Error",
+                error.message
+            );
         }
       );
+  }
+
+  fun_warning(msm:string, hsms:string)
+  {
+    debugger;
+    Swal.fire({
+      title: hsms,
+      text: msm,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Reload'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/policy-add-siblings/'+ this.Req_id]);
+      }
+    });
   }
 }

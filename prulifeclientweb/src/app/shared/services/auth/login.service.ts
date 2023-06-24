@@ -20,7 +20,8 @@ export class LoginService {
   {
     // console.log(formValueLogin.email);
     // console.log(this.baseurl.url_api+'/auth/login');
-    this.http.post<any>(this.baseurl.url_api+'/auth/login', formValueLogin).subscribe(
+    this.http.post<any>(this.baseurl.url_api+'/auth/login', formValueLogin,
+    ).subscribe(
       data=>
       {
         if(data.StatusCode == 200)

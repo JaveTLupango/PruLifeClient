@@ -31,7 +31,8 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Cause of Death?</span>
-                    <input type="text" placeholder="Enter your name" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death">
+                    <input *ngIf="!motherDetailsModel.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death" disabled>
+                    <input *ngIf="motherDetailsModel.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death">
                 </div>
                 <div class="input-box">
                     <span class="details">Does your mother have an illness?</span><br/>
@@ -45,12 +46,14 @@
 
                 <div class="input-box">
                     <span class="details">What illness does your mother have?</span>
-                    <input type="text" placeholder="What illness does your mother have?" [(ngModel)]="motherDetailsModel.illness" name="Millness">
+                    <input *ngIf="!motherDetailsModel.is_not_illness" type="text" placeholder="What illness does your mother have?" [(ngModel)]="motherDetailsModel.illness" name="Millness" disabled>
+                    <input *ngIf="motherDetailsModel.is_not_illness" type="text" placeholder="What illness does your mother have?" [(ngModel)]="motherDetailsModel.illness" name="Millness">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Age Diagnosis?</span>
-                    <input type="number" placeholder="Age Diagnosis?" [(ngModel)]="motherDetailsModel.age_diagnosis" name="Mage_diagnosis" required>
+                    <input *ngIf="!motherDetailsModel.is_not_illness" type="number" placeholder="Age Diagnosis?" [(ngModel)]="motherDetailsModel.age_diagnosis" name="Mage_diagnosis" disabled>
+                    <input *ngIf="motherDetailsModel.is_not_illness" type="number" placeholder="Age Diagnosis?" [(ngModel)]="motherDetailsModel.age_diagnosis" name="Mage_diagnosis" required>
                 </div>
             </div>
             <div class="title">Father Information</div>
@@ -82,10 +85,11 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Cause of Death?</span>
-                    <input type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death">
+                    <input *ngIf="!fatherDetailsModel.is_not_death" type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death" disabled>
+                    <input *ngIf="fatherDetailsModel.is_not_death" type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death">
                 </div>
                 <div class="input-box">
-                    <span class="details">Does your mother have an illness?</span><br/>
+                    <span class="details">Does your father have an illness?</span><br/>
                     <input type="checkbox" placeholder="Does your father have an illness?" required style="
                         height: 30%;
                         float: left;
@@ -95,13 +99,15 @@
                 </div>
 
                 <div class="input-box">
-                    <span class="details">What illness does your mother have?</span>
-                    <input type="text" placeholder="What illness does your father have?" [(ngModel)]="fatherDetailsModel.illness" name="Fillness">
+                    <span class="details">What illness does your father have?</span>
+                    <input *ngIf="!fatherDetailsModel.is_not_illness" type="text" placeholder="What illness does your father have?" [(ngModel)]="fatherDetailsModel.illness" name="Fillness" disabled>
+                    <input *ngIf="fatherDetailsModel.is_not_illness" type="text" placeholder="What illness does your father have?" [(ngModel)]="fatherDetailsModel.illness" name="Fillness">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Age Diagnosis?</span>
-                    <input type="number" placeholder="Age Diagnosis?" [(ngModel)]="fatherDetailsModel.age_diagnosis" name="Fage_diagnosis" required>
+                    <input *ngIf="!fatherDetailsModel.is_not_illness" type="number" disabled placeholder="Age Diagnosis?" [(ngModel)]="fatherDetailsModel.age_diagnosis" name="Fage_diagnosis">
+                    <input *ngIf="fatherDetailsModel.is_not_illness" type="number" placeholder="Age Diagnosis?" [(ngModel)]="fatherDetailsModel.age_diagnosis" name="Fage_diagnosis" required>
                 </div>
             </div>
             <div class="button">
