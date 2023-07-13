@@ -31,8 +31,8 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Cause of Death?</span>
-                    <input *ngIf="!motherDetailsModel.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death" disabled>
-                    <input *ngIf="motherDetailsModel.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death">
+                    <input *ngIf="motherDetailsModel.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death" disabled>
+                    <input *ngIf="!motherDetailsModel.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="motherDetailsModel.cause_of_death" name="Mcause_of_death">
                 </div>
                 <div class="input-box">
                     <span class="details">Does your mother have an illness?</span><br/>
@@ -85,8 +85,8 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Cause of Death?</span>
-                    <input *ngIf="!fatherDetailsModel.is_not_death" type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death" disabled>
-                    <input *ngIf="fatherDetailsModel.is_not_death" type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death">
+                    <input *ngIf="fatherDetailsModel.is_not_death" type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death" disabled>
+                    <input *ngIf="!fatherDetailsModel.is_not_death" type="text" placeholder="Cause of Death?" [(ngModel)]="fatherDetailsModel.cause_of_death" name="Fcause_of_death">
                 </div>
                 <div class="input-box">
                     <span class="details">Does your father have an illness?</span><br/>

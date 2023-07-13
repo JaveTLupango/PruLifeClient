@@ -54,6 +54,8 @@ export class ClientParentInformationComponent {
 
   onsubmit()
   {
+    console.log(this.motherDetailsModel);
+    console.log(this.fatherDetailsModel);
 
     debugger;
     this.mValidAction = false;
@@ -65,7 +67,7 @@ export class ClientParentInformationComponent {
       this.motherDetailsModel.string_type = "Mother"
       console.log(this.motherDetailsModel);
 
-      if(!this.motherDetailsModel.is_not_death)
+      if(this.motherDetailsModel.is_not_death)
       {
         this.motherDetailsModel.cause_of_death = "N/A";
       }
@@ -101,6 +103,18 @@ export class ClientParentInformationComponent {
     }
     else
     {
+
+      if(this.motherDetailsModel.is_not_death)
+      {
+        this.motherDetailsModel.cause_of_death = "N/A";
+      }
+
+      if(!this.motherDetailsModel.is_not_illness)
+      {
+        this.motherDetailsModel.illness = "N/A";
+        this.motherDetailsModel.age_diagnosis = 0;
+      }
+
         this.service.update(this.motherDetailsModel).subscribe(
           data =>
           {
@@ -131,7 +145,7 @@ export class ClientParentInformationComponent {
       this.fatherDetailsModel.type = 1;
       console.log(this.fatherDetailsModel);
 
-      if(!this.fatherDetailsModel.is_not_death)
+      if(this.fatherDetailsModel.is_not_death)
       {
         this.fatherDetailsModel.cause_of_death = "N/A";
       }
@@ -168,6 +182,17 @@ export class ClientParentInformationComponent {
     }
     else
     {
+      if(this.fatherDetailsModel.is_not_death)
+      {
+        this.fatherDetailsModel.cause_of_death = "N/A";
+      }
+
+      if(!this.fatherDetailsModel.is_not_illness)
+      {
+        this.fatherDetailsModel.illness = "N/A";
+        this.fatherDetailsModel.age_diagnosis = 0;
+      }
+
       this.service.update(this.fatherDetailsModel).subscribe(
         data =>
         {

@@ -30,8 +30,8 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Cause of Death?</span>
-                    <input *ngIf="!modelSiblings.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="modelSiblings.cause_of_death" name="cause_of_death" disabled>
-                    <input *ngIf="modelSiblings.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="modelSiblings.cause_of_death" name="cause_of_death" required>
+                    <input *ngIf="modelSiblings.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="modelSiblings.cause_of_death" name="cause_of_death" disabled>
+                    <input *ngIf="!modelSiblings.is_not_death" type="text" placeholder="Cause of Death" [(ngModel)]="modelSiblings.cause_of_death" name="cause_of_death" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Does your bother/sister have an illness?</span><br/>
