@@ -41,6 +41,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
     ClientdatapreviewComponent,
     UpdateClientSiblingsInfoComponent,
     AdscomponentComponent
+
   ],
   imports: [
     BrowserModule,
