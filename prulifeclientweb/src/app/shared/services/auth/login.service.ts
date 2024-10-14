@@ -19,6 +19,7 @@ export class LoginService {
 
   login(formValueLogin : Login)
   {
+    debugger;
     // console.log(formValueLogin.email);
     // console.log(this.baseurl.url_api+'/auth/login');
     this.http.post<any>(this.baseurl.url_api+'/auth/login', formValueLogin,
@@ -30,7 +31,7 @@ export class LoginService {
            console.log(data.token);
            console.log(data.data);
           localStorage.setItem('AuthToken', data.token);
-          localStorage.setItem('UsersInfo', data.data);
+          localStorage.setItem('UsersInfo', JSON.stringify(data.data));
           Swal.fire(
             'Login Successfully!',
             data.message,

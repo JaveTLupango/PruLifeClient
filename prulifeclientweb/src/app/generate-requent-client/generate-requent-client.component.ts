@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { RequestURLService } from '../shared/services/RequestURL/request-url.service';
 import { RequestURL } from '../Model/RequestURL/request-url.model';
 import Swal from 'sweetalert2';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-generate-requent-client',
@@ -20,10 +21,15 @@ export class GenerateRequentClientComponent {
   requestURL : any;
   requestURLList :RequestURL[] | undefined;
   isLoading : boolean = false;
+  ubstring : any = localStorage.getItem('UsersInfo');
+  userDetails : any;
 
   ngOnInit(){
+    console.log(this.ubstring);
+    this.userDetails = JSON.parse(this.ubstring);
+    console.log( this.userDetails);
       this.visible = this.appC.isLogin;
-      this.request_url.getListOfRequestURL().subscribe(
+      this.request_url.getListOfRequestURL(this.userDetails.id).subscribe(
         data=>
         {
           this.requestURL = data;

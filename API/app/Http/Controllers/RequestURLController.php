@@ -63,11 +63,14 @@ class RequestURLController extends Controller
         // ]);
     }
 
-    public function getListofRequestURL()
+    public function getListofRequestURL(Request $request)
     {
         return response()->json([
             'message'=>'Request URL successfully fetch',
-            'data'=>RequestUrl::Where('is_deleted', 0)->OrderBy('id', 'desc')->get(),
+            'data'=>RequestUrl::Where([
+                ['is_deleted', '=', 0],
+                ['user_id', '=', $request->id],
+            ])->OrderBy('id', 'desc')->get(),
             'StatusCode'=>200
         ]);
     }

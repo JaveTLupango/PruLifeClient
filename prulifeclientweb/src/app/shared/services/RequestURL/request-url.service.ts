@@ -15,12 +15,12 @@ export class RequestURLService {
   baseurl : Baseurl = new Baseurl();  
   reqModel : RequestModel = new RequestModel();
 
-  getListOfRequestURL()
+  getListOfRequestURL(id: number)
   {
     const headers = new HttpHeaders()
             .set("Authorization", "Bearer "+localStorage.getItem('AuthToken'));
-    const apiURL = this.baseurl.url_api+"/request-url/list";
-        return this.http.get(apiURL,{headers});
+    const apiURL = this.baseurl.url_api+"/request-url/list?id="+id;
+    return this.http.get(apiURL, {headers});
   }
 
   postCreateRequestURL(createRURL: CreateRequestURL)
