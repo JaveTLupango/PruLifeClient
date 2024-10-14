@@ -46,13 +46,13 @@
                 <div class="input-box">
                     <span class="details">What illness does your bother/sister have?</span>
                     <input *ngIf="!modelSiblings.is_not_illness" type="text" placeholder="Illness" [(ngModel)]="modelSiblings.illness" name="illness" disabled>
-                    <input *ngIf="modelSiblings.is_not_illness" type="text" placeholder="Illness" [(ngModel)]="modelSiblings.illness" name="illness" required>
+                    <input *ngIf="modelSiblings.is_not_illness" type="text" placeholder="Illness" [(ngModel)]="modelSiblings.illness" name="illness">
                 </div>
 
                 <div class="input-box">
                     <span class="details">Age Diagnosis?</span>
                     <input *ngIf="!modelSiblings.is_not_illness" type="number" placeholder="" [(ngModel)]="modelSiblings.age_diagnosis" name="age_diagnosis" disabled>
-                    <input *ngIf="modelSiblings.is_not_illness" type="number" placeholder="" [(ngModel)]="modelSiblings.age_diagnosis" name="age_diagnosis" required>
+                    <input *ngIf="modelSiblings.is_not_illness" type="number" placeholder="" [(ngModel)]="modelSiblings.age_diagnosis" name="age_diagnosis">
 
                 </div>
                 <div class="input-box">

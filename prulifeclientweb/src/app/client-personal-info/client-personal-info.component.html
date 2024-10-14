@@ -17,7 +17,7 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Birth Date</span>
-                    <input type="date" placeholder="Enter your username" [(ngModel)]="bday" name="bday" required>
+                    <input type="date" placeholder="Enter your username" [(ngModel)]="bday" name="bday" (ngModelChange)="bday" (ngModelChange)="onchangeBday()" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Email</span>

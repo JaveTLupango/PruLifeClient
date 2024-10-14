@@ -41,6 +41,7 @@ export class CreateGenReqClientComponent {
   }
   onSubmit()
   {
+    debugger;
     // console.log(this.email);
     // console.log(this.alias);
     this.createRURL.receipt_alias = this.alias;

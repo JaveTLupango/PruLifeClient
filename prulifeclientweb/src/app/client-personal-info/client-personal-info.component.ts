@@ -155,4 +155,13 @@ export class ClientPersonalInfoComponent {
         // })
     }
   }
+
+  onchangeBday()
+  { 
+    console.log( this.bday)
+    const convertAge = new Date(this.bday);
+    let timeDiff = Math.abs(Date.now() - convertAge.getTime());
+    let age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25);
+    console.log(age)
+  }
 }

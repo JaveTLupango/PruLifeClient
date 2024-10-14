@@ -26,6 +26,9 @@ export class AddSiblingComponent {
   {
       console.log(this.modelSiblings);
       this.modelSiblings.request_id = this.Req_id;
+      this.modelSiblings.illness = !this.modelSiblings.is_not_illness ? "None" : this.modelSiblings.illness;
+      this.modelSiblings.age_diagnosis = !this.modelSiblings.is_not_illness ? 100 : this.modelSiblings.age_diagnosis;
+      this.modelSiblings.cause_of_death = this.modelSiblings.is_not_death ? "None" : this.modelSiblings.cause_of_death;
       this.services.create(this.modelSiblings).subscribe(
         data=>
         {
