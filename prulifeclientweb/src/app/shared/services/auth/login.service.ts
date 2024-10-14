@@ -4,6 +4,7 @@ import { Login } from 'src/app/Model/login.model';
 import { Baseurl } from '../../baseurl/baseurl.model';
 import Swal from 'sweetalert2';
 import { NavigationEnd, Router } from '@angular/router';
+import { RegisterComponent } from 'src/app/register/register.component';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,7 @@ export class LoginService {
           localStorage.setItem('AuthToken', data.token);
           localStorage.setItem('UsersInfo', data.data);
           Swal.fire(
-            'Login Successfuly!',
+            'Login Successfully!',
             data.message,
             'success'
           )
@@ -52,5 +53,11 @@ export class LoginService {
           'warning'
         )
       });
+  }
+
+  register(formValueLogin : Login)
+  {
+    return this.http.post<any>(this.baseurl.url_api+'/auth/register', formValueLogin,
+    );
   }
 }

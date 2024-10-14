@@ -30,7 +30,8 @@ class AuthController extends Controller
         if($validator->fails()){
             return response()->json([
                 'message'=>'Validations fails',
-                'errors'=>$validator->errors()
+                'errors'=>$validator->errors(),
+                'StatusCode' => 422
             ], 422);
         }
 
@@ -42,8 +43,9 @@ class AuthController extends Controller
 
         return response()->json([
             'message'=>'Registration successfully',
-            'date'=>$users
-        ], 200);
+            'date'=>$users,
+            'StatusCode' => 200
+        ], status: 200);
     }
 
     public function login (Request $request)

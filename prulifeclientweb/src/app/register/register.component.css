@@ -290,3 +290,8 @@ input[type=password]:placeholder {
 #icon {
     width: 30%;
 }
+
+.login {
+    float: left;
+    height: 12px;
+}

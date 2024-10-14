@@ -4,23 +4,37 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="wrapper fadeInDown">
-    <div id="formContent">
+    <div id="formContent" *ngIf="!isRegistered">
         <!-- Icon -->
         <div class="fadeIn first">
             <img src="../assets/img/logo.png" id="icon" alt="User Icon" />
         </div>
         <!-- Login Form -->
         <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <input type="email" id="name" class="fadeIn second" name="name" placeholder="Name" [(ngModel)]="name" required>
             <input type="email" id="email" class="fadeIn second" name="email" placeholder="Email" [(ngModel)]="email" required>
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" [(ngModel)]="password" required>
-            <input type="submit" class="fadeIn fourth" value="Log In">
+            <input type="password" id="confirm_password" class="fadeIn third" name="confirm_password" placeholder="Confirm Password" [(ngModel)]="confirm_password" required>
+            <input type="submit" class="fadeIn fourth" value="Register"> <br>
+            <div *ngIf="isNotif" class="btn btn-danger"> {{ warningNotif }}</div>
         </form>
         <!-- Remind Passowrd -->
         <div id="formFooter">
+            <a class="underlineHover login" href="/login">Login</a>
             <a class="underlineHover" href="/">Forgot Password?</a>
         </div>
     </div>
 
+    <div id="formContent" *ngIf="isRegistered">
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="../assets/img/logo.png" id="icon" alt="User Icon" />
+        </div>
+        <div id="formFooter">
+            <h3>Please proceed to login!</h3>
+            <a class="underlineHover login" href="/login">Login</a>
+        </div>
+    </div>
     <app-adscomponent></app-adscomponent>
 </div>
 <!--
