@@ -13,10 +13,12 @@ import { AddSiblingComponent } from './add-sibling/add-sibling.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ClientdatapreviewComponent } from './clientdatapreview/clientdatapreview.component';
 import { UpdateClientSiblingsInfoComponent } from './update-client-siblings-info/update-client-siblings-info.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: '', component:GenerateRequentClientComponent},
   {path: 'login', component:LoginComponent},
+  {path: 'register', component:RegisterComponent},
   {path: 'generaterequesturl', component:GenerateRequentClientComponent},
   {path:'creategenrequrl', component:CreateGenReqClientComponent},
   {path:'UserTerms', component:UserConsentTermsConditionComponent},

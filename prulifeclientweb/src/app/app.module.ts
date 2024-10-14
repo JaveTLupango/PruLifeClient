@@ -23,6 +23,7 @@ import { UpdateClientSiblingsInfoComponent } from './update-client-siblings-info
 import { AdsenseModule } from 'ng2-adsense';
 import { AdscomponentComponent } from './adscomponent/adscomponent.component';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { Router, RouterModule, Routes } from '@angular/router';
     LogoutComponent,
     ClientdatapreviewComponent,
     UpdateClientSiblingsInfoComponent,
-    AdscomponentComponent
+    AdscomponentComponent,
+    RegisterComponent
 
   ],
   imports: [
