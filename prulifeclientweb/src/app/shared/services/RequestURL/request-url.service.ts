@@ -15,7 +15,6 @@ export class RequestURLService {
   baseurl : Baseurl = new Baseurl();  
   reqModel : RequestModel = new RequestModel();
 
-
   getListOfRequestURL()
   {
     const headers = new HttpHeaders()
